@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter, Route, Switch } from 'react-router-dom';
-import { ArticleContainer } from '../ArticleContainer/ArticleContainer';
+import ArticleContainer from '../ArticleContainer/ArticleContainer';
 import { fetchArticles } from '../../thunks/fetchArticles';
 
 export class App extends Component {
@@ -14,15 +13,16 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>HAAAY</h1>
-        <ArticleContainer />
+        <h1>newsalbum</h1>
+        {!this.props.isLoading && <ArticleContainer />}
       </div>
     );
   }
 }
 
 export const mapStateToProps = (state) => ({
-  articles: state.articles
+  articles: state.articles,
+  isLoading: state.isLoading
 })
 
 export const mapDispatchToProps = (dispatch) => ({
