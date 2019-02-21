@@ -1,0 +1,11 @@
+.Popup {
+  background-color: $popup-background;
+  width: 92%;
+  height: 60%;
+  position: fixed;
+  z-index: 1;
+  margin: auto;
+  top: 180px;
+  color: #fff;
+  left: 4%;
+}
