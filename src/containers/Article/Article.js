@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export class Article extends Component {
@@ -7,10 +8,10 @@ export class Article extends Component {
     const { article } = this.props;
     const title = article.title.toUpperCase();
     return (
-      <div className='Article'>
+      <Link className='Article' to={'/national-geographic/' + article.id}>
         <p className='Article--title'>{title}</p>
         <img className='Article--image' alt='article' src={article.urlToImage}/>
-      </div>
+      </Link>
     )
   }
 }
