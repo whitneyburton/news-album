@@ -7,8 +7,8 @@ export const fetchArticles = () => {
       dispatch(toggleLoading(true));
       const response = await fetchData('https://newsapi.org/v2/top-headlines?sources=national-geographic&apiKey=db31113f5e8d42dab3b24a559d34e086');
       const result = await response.json();
-      dispatch(toggleLoading(false));
       dispatch(setArticles(result.articles));
+      dispatch(toggleLoading(false));
     } catch (error) {
       dispatch(setError(error.message));
     }
