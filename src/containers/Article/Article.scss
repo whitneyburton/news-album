@@ -1,0 +1,15 @@
+.Article {
+  position: relative;
+  width: 600px;
+  border: 1px solid #000;
+  margin: auto;
+}
+
+.Article--title {
+  position: relative;
+  z-index: 1;
+}
+
+.Article--image {
+  width: 100%;
+}

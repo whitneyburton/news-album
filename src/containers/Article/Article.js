@@ -5,11 +5,11 @@ export class Article extends Component {
 
   render() {
     const { article } = this.props;
+    const title = article.title.toUpperCase();
     return (
       <div className='Article'>
-        <p>{article.title}</p>
-        <p>{article.author}</p>
-        <p>{article.description}</p>
+        <p className='Article--title'>{title}</p>
+        <img className='Article--image' alt='article' src={article.urlToImage}/>
       </div>
     )
   }
