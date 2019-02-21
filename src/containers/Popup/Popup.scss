@@ -1,4 +1,6 @@
 .Popup {
+  display: flex;
+  justify-content: space-between;
   background-color: $popup-background;
   width: 92%;
   height: 60%;
@@ -8,4 +10,26 @@
   top: 180px;
   color: #fff;
   left: 4%;
+  padding: 15px;
+
+
+  .Popup--info {
+
+  }
+
+  .Popup--title {
+    font-size: 64px;
+  }
+  
+  .Popup--author-pub {
+
+  }
+
+  .Popup--description {
+
+  }
+
+  .Popup--image {
+    width: 55%;
+  }
 }
