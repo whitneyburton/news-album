@@ -6,13 +6,13 @@ import { withRouter, Route, Switch } from 'react-router-dom';
 
 export class App extends Component {
   componentDidMount = () => {
-    
+
   }
 
   render() {
     return (
       <div className="App">
-        
+        <h1>HAAAY</h1>
       </div>
     );
   }
@@ -20,4 +20,4 @@ export class App extends Component {
 
 
 
-// export default App;
+export default App;
