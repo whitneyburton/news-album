@@ -1,15 +1,22 @@
 .Article {
   position: relative;
-  width: 570px;
-  border: 1px solid #000;
-  margin: auto;
+  width: 400px;
+  // border: 1px solid #000;
+  margin: 14px auto;
   text-decoration: none;
   color: #000;
 }
 
 .Article--title {
-  position: relative;
+  // width: 43%;
+  position: absolute;
   z-index: 1;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin: 16px;
+  font-size: 2.2rem;
+  text-shadow: 2px 2px 4px black;
 }
 
 .Article--image {
