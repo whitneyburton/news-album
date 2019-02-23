@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux';
-import { articlesReducer } from './articlesReducer';
+import { natGeoReducer } from './natGeoReducer';
+import { newScientistReducer } from './newScientistReducer';
+import { cryptoCoinsReducer } from './cryptoCoinsReducer';
 import { errorReducer } from './errorReducer';
 import { isLoadingReducer } from './isLoadingReducer';
 
 export const rootReducer = combineReducers({
-  articles: articlesReducer,
+  natGeoArticles: natGeoReducer,
+  newScientistArticles: newScientistReducer,
+  cryptoCoinsArticles: cryptoCoinsReducer,
   error: errorReducer,
   isLoadingReducer: isLoadingReducer
 });
