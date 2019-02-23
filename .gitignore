@@ -8,6 +8,9 @@
 # testing
 /coverage/lcov-report
 
+# api key
+/src/utils/api-key.js
+
 # production
 /build
 
