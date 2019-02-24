@@ -10,5 +10,5 @@ export const rootReducer = combineReducers({
   newScientistArticles: newScientistReducer,
   cryptoCoinsArticles: cryptoCoinsReducer,
   error: errorReducer,
-  isLoadingReducer: isLoadingReducer
+  isLoading: isLoadingReducer
 });
