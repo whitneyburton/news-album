@@ -1,3 +1,21 @@
+export const mockNatGeoArticle = {
+  url: 'www.nationalgeographic.com',
+  title: 'Lions and Tigers and Bears',
+  urlToImage: 'www.image.com'
+}
+
+export const mockCryptoCoinsArticle = {
+  url: 'www.ccn.com',
+  title: 'Oooh coins!',
+  urlToImage: 'www.image.com'
+}
+
+export const mockNewScientistArticle = {
+  url: 'www.newscientist.com',
+  title: 'Science rules!',
+  urlToImage: 'www.image.com'
+}
+
 export const mockNatGeoArticles = [
   {
     author: 'Erica Johnson',
