@@ -70,8 +70,10 @@ export class App extends Component {
             path='/crypto-coins'
             render={({ match }) => <ArticleContainer match={match} />} />
           <Route
+            exact
             path='/'
             component={Home} />
+          <Route component={Error404} />
         </Switch>
       </div>
     );
