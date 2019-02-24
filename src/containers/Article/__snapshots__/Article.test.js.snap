@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article should match the snapshot 1`] = `
+<Link
+  className="Article"
+  replace={false}
+  to="/national-geographic/undefined"
+>
+  <p
+    className="Article--title"
+  >
+    LIONS AND TIGERS AND BEARS
+  </p>
+  <img
+    alt="article"
+    className="Article--image"
+    src="www.image.com"
+  />
+</Link>
+`;
