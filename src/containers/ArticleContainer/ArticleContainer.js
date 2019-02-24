@@ -6,9 +6,30 @@ import Masonry from 'react-masonry-css';
 
 export class ArticleContainer extends Component {
 
+  generateArticleCategory = () => {
+    const { match, natGeoArticles, cryptoCoinsArticles, newScientistArticles } = this.props;
+    switch (match.path) {
+      case '/national-geographic':
+      case '/national-geographic/:id':
+        return natGeoArticles.map(article => {
+          return <Article key={article.id} article={article} />
+        });
+      case '/crypto-coins':
+      case '/crypto-coins/:id':
+        return cryptoCoinsArticles.map(article => {
+          return <Article key={article.id} article={article} />
+        });
+      case '/new-scientist':
+      case '/new-scientist/:id':
+        return newScientistArticles.map(article => {
+          return <Article key={article.id} article={article} />
+        });
+      default:
+        return;
+    }
+  }
+
   render() {
-    const { articles } = this.props;
-    const articleCards = articles.map(article => <Article article={article} />);
     const breakpoints = {
       default: 3,
       1500: 2,
@@ -20,18 +41,23 @@ export class ArticleContainer extends Component {
         breakpointCols={breakpoints}
         className="ArticleContainer"
         columnClassName="columns">
-        {articleCards}
+        {this.generateArticleCategory()}
       </Masonry>
     )
   }
 }
 
 export const mapStateToProps = (state) => ({
-  articles: state.articles
+  natGeoArticles: state.natGeoArticles,
+  newScientistArticles: state.newScientistArticles,
+  cryptoCoinsArticles: state.cryptoCoinsArticles
 })
 
 export default connect(mapStateToProps)(ArticleContainer);
 
 ArticleContainer.propTypes = {
-  articles: PropTypes.array
+  match: PropTypes.object,
+  natGeoArticles: PropTypes.array,
+  newScientistArticles: PropTypes.array,
+  cryptoCoinsArticles: PropTypes.array
 }
