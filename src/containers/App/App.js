@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import ArticleContainer from '../ArticleContainer/ArticleContainer';
-import Loader from '../../components/Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 import { Popup } from '../Popup/Popup';
 import { Home } from '../../components/Home/Home';
 import { Nav } from '../../components/Nav/Nav';
