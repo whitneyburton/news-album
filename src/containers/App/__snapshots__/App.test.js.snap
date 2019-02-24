@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App App component should match the snapshot 1`] = `
+<div
+  className="App"
+>
+  <h1>
+    news
+    <span>
+      album
+    </span>
+  </h1>
+  <div
+    className="App--quote-and-favorites"
+  >
+    <div>
+      <h2
+        className="App--learn"
+      >
+        LEARN +
+      </h2>
+      <h2
+        className="App--get-inspired"
+      >
+        GET INSPIRED.
+      </h2>
+    </div>
+    <h3>
+      my
+      <span>
+        favorites
+      </span>
+    </h3>
+  </div>
+  <Nav />
+  <Switch>
+    <Route
+      path="/crypto-coins/:id"
+      render={[Function]}
+    />
+    <Route
+      path="/national-geographic/:id"
+      render={[Function]}
+    />
+    <Route
+      path="/new-scientist/:id"
+      render={[Function]}
+    />
+    <Route
+      path="/national-geographic"
+      render={[Function]}
+    />
+    <Route
+      path="/new-scientist"
+      render={[Function]}
+    />
+    <Route
+      path="/crypto-coins"
+      render={[Function]}
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+    />
+  </Switch>
+</div>
+`;
+
+exports[`App App component should match the snapshot when isLoading is true 1`] = `
+<div
+  className="App"
+>
+  <h1>
+    news
+    <span>
+      album
+    </span>
+  </h1>
+  <div
+    className="App--quote-and-favorites"
+  >
+    <div>
+      <h2
+        className="App--learn"
+      >
+        LEARN +
+      </h2>
+      <h2
+        className="App--get-inspired"
+      >
+        GET INSPIRED.
+      </h2>
+    </div>
+    <h3>
+      my
+      <span>
+        favorites
+      </span>
+    </h3>
+  </div>
+  <Nav />
+  <Switch>
+    <Route
+      path="/crypto-coins/:id"
+      render={[Function]}
+    />
+    <Route
+      path="/national-geographic/:id"
+      render={[Function]}
+    />
+    <Route
+      path="/new-scientist/:id"
+      render={[Function]}
+    />
+    <Route
+      path="/national-geographic"
+      render={[Function]}
+    />
+    <Route
+      path="/new-scientist"
+      render={[Function]}
+    />
+    <Route
+      path="/crypto-coins"
+      render={[Function]}
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+    />
+  </Switch>
+</div>
+`;
