@@ -1,29 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { withRouter, Route, Switch } from 'react-router-dom';
 import ArticleContainer from '../ArticleContainer/ArticleContainer';
 import Loader from '../../components/Loader/Loader';
-import Popup from '../Popup/Popup';
+import { Popup } from '../Popup/Popup';
 import { Home } from '../../components/Home/Home';
+import { Nav } from '../../components/Nav/Nav';
 import { Error404 } from '../../components/Error404/Error404';
-import { fetchArticles } from '../../thunks/fetchArticles';
+import { fetchCryptoCoins } from '../../thunks/fetchCryptoCoins';
+import { fetchNatGeo } from '../../thunks/fetchNatGeo';
+import { fetchNewScientist } from '../../thunks/fetchNewScientist';
 
 export class App extends Component {
   componentDidMount = () => {
-    this.props.fetchArticles();
+    this.props.fetchNatGeo();
+    this.props.fetchCryptoCoins();
+    this.props.fetchNewScientist();
   }
 
   getArticleRoute = ({ match }) => {
-    const { articles } = this.props;
+    const { natGeoArticles, cryptoCoinsArticles, newScientistArticles } = this.props;
     const { id } = match.params;
-    const currentArticle = articles.find(article => article.id === id);
-    return currentArticle ? (
-      [
-        <ArticleContainer />,
-        <Popup {...currentArticle} match={match} />
-      ]
-    ) : <Error404 />;
+    let currentArticle;
+    if (match.path.includes('national')) {
+      currentArticle = natGeoArticles.find(article => article.id === id);
+    } else if (match.path.includes('crypto')) {
+      currentArticle = cryptoCoinsArticles.find(article => article.id === id);
+    } else if (match.path.includes('scientist')) {
+      currentArticle = newScientistArticles.find(article => article.id === id);
+    }
+    return currentArticle ? ([
+      <ArticleContainer match={match} />,
+      <Popup currentArticle={currentArticle} match={match} />]) :
+      <Error404 />;
   }
 
   render() {
@@ -38,18 +48,30 @@ export class App extends Component {
           </div>
           <h3>my<span>favorites</span></h3>
         </div>
-        <div className='App--NavLink-container'>
-          <NavLink to='/' className='App--nav-btn'>Home</NavLink>
-          <NavLink to='/national-geographic' className='App--nav-btn'>National Geographic</NavLink>
-          <NavLink to='/google-news' className='App--nav-btn'>Google News</NavLink>
-          <NavLink to='/new-york-times' className='App--nav-btn'>New York Times</NavLink>
-        </div>
+        <Nav />
         {isLoading && <Loader />}
         <Switch>
-          {/* <Route path='/' render={ArticleContainer} /> */}
-          <Route path='/national-geographic/:id' render={this.getArticleRoute} />
-          <Route path='/national-geographic' component={ArticleContainer} />
-          <Route path='/' component={ArticleContainer} />
+          <Route
+            path='/crypto-coins/:id'
+            render={this.getArticleRoute} />
+          <Route
+            path='/national-geographic/:id'
+            render={this.getArticleRoute} />
+          <Route
+            path='/new-scientist/:id'
+            render={this.getArticleRoute} />
+          <Route
+            path='/national-geographic'
+            render={({ match }) => <ArticleContainer match={match} />} />
+          <Route
+            path='/new-scientist'
+            render={({ match }) => <ArticleContainer match={match} />} />
+          <Route
+            path='/crypto-coins'
+            render={({ match }) => <ArticleContainer match={match} />} />
+          <Route
+            path='/'
+            component={Home} />
         </Switch>
       </div>
     );
@@ -57,12 +79,16 @@ export class App extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  articles: state.articles,
+  natGeoArticles: state.natGeoArticles,
+  newScientistArticles: state.newScientistArticles,
+  cryptoCoinsArticles: state.cryptoCoinsArticles,
   isLoading: state.isLoading
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  fetchArticles: () => dispatch(fetchArticles())
+  fetchNatGeo: () => dispatch(fetchNatGeo()),
+  fetchNewScientist: () => dispatch(fetchNewScientist()),
+  fetchCryptoCoins: () => dispatch(fetchCryptoCoins())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
