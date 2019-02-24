@@ -5,5 +5,5 @@ export const Error404 = () => {
     <div className='Error404'>
       <p>Error</p>
     </div>
-  )
+  );
 }
