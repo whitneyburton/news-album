@@ -57,5 +57,6 @@ export class Popup extends Component {
 }
 
 Popup.propTypes = {
-  article: PropTypes.object
+  article: PropTypes.object,
+  match: PropTypes.object
 }
