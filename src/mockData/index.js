@@ -1,19 +1,22 @@
 export const mockNatGeoArticle = {
   url: 'www.nationalgeographic.com',
   title: 'Lions and Tigers and Bears',
-  urlToImage: 'www.image.com'
+  urlToImage: 'www.image.com',
+  publishedAt: '2019-02-19T02:07:16.9805881Z'
 }
 
 export const mockCryptoCoinsArticle = {
   url: 'www.ccn.com',
   title: 'Oooh coins!',
-  urlToImage: 'www.image.com'
+  urlToImage: 'www.image.com',
+  publishedAt: '2019-02-19T02:07:16.9805881Z'
 }
 
 export const mockNewScientistArticle = {
   url: 'www.newscientist.com',
   title: 'Science rules!',
-  urlToImage: 'www.image.com'
+  urlToImage: 'www.image.com',
+  publishedAt: '2019-02-19T02:07:16.9805881Z'
 }
 
 export const mockNatGeoArticles = [
