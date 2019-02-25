@@ -1,14 +1,17 @@
 .Article {
   position: relative;
   width: 400px;
-  // border: 1px solid #000;
   margin: 14px auto;
   text-decoration: none;
   color: #000;
 }
 
+.Article--title-container {
+  background-color: #7080907a;
+}
+
 .Article--title {
-  // width: 43%;
+  width: 90%;
   position: absolute;
   z-index: 1;
   color: #fff;

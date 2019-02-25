@@ -20,8 +20,10 @@ export class Article extends Component {
     const title = article.title.toUpperCase();
     return (
       <Link className='Article' to={this.getPath() + article.id}>
-        <p className='Article--title'>{title}</p>
-        <img className='Article--image' alt='article' src={article.urlToImage}/>
+          <div className='Article--title-container'>
+            <p className='Article--title'>{title}</p>
+          </div>
+          <img className='Article--image' alt='article' src={article.urlToImage} />
       </Link>
     )
   }
