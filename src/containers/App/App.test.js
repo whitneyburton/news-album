@@ -39,7 +39,7 @@ describe('App', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = shallow(<App {...mockProps} />)
+      wrapper = shallow(<App {...mockProps} match={mockMatch} />)
     });
 
     it('should match the snapshot', () => {
@@ -47,10 +47,10 @@ describe('App', () => {
     });
 
     it('should match the snapshot when isLoading is true', () => {
-      wrapper = shallow(<App {...mockProps} isloading={true} />)
+      wrapper = shallow(<App {...mockProps} isLoading={true} />)
       expect(wrapper).toMatchSnapshot();
     });
-    
+
     it('should call fetchNatGeo, fetchCryptoCoins, and fetchNewScientist on componentDidMount', () => {
       wrapper.instance().componentDidMount();
       expect(mockProps.fetchNatGeo).toHaveBeenCalled();
@@ -58,7 +58,31 @@ describe('App', () => {
       expect(mockProps.fetchNewScientist).toHaveBeenCalled();
     });
 
-    // test getArticlesRoute with 3 conditions
+    describe('getArticleRoute', () => {
+      it('should return the ArticleContainer and Popup components when there is a NAT GEO currentArticle', () => {
+        const result = wrapper.instance().getArticleRoute({ match: mockMatch });
+        expect(result).toHaveLength(2);
+      });
+
+      it('should return the ArticleContainer and Popup components when there is a NEW SCIENTIST currentArticle', () => {
+        const mockMatch = { params: { id: 'c' }, path: 'new-scientist/c' };
+        const result = wrapper.instance().getArticleRoute({ match: mockMatch });
+        expect(result).toHaveLength(2);
+      });
+
+      it('should return the ArticleContainer and Popup components when there is a CRYPTO COINS currentArticle', () => {
+        const mockMatch = { params: { id: 'e' }, path: 'crypto-coins/e' };
+        const result = wrapper.instance().getArticleRoute({ match: mockMatch });
+        expect(result).toHaveLength(2);
+      });
+
+      it('should return the Error404 component when there is no currentArticle match', () => {
+        const mockMatch = { params: { id: 'z' }, path: 'national-geographic/z' };
+        const result = wrapper.instance().getArticleRoute({ match: mockMatch });
+        const errorWrapper = shallow(result);
+        expect(errorWrapper.find('.Error404')).toHaveLength(1);
+      });
+    });
   });
 
   describe('mapStateToProps', () => {

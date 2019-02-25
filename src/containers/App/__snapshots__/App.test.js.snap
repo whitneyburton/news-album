@@ -49,6 +49,7 @@ exports[`App App component should match the snapshot when isLoading is true 1`] 
 >
   <Header />
   <Nav />
+  <Loader />
   <Switch>
     <Route
       path="/crypto-coins/:id"
