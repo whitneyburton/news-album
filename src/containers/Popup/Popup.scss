@@ -3,7 +3,8 @@
   justify-content: space-between;
   background-color: #4C3E3E;
   width: 95%;
-  height: 60%;
+  min-height: 60%;
+  max-height: 70%;
   position: fixed;
   z-index: 1;
   margin: auto;

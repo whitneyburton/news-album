@@ -10,8 +10,6 @@ export class Popup extends Component {
     const { currentArticle: article, match } = this.props;
     const previousUrl = match.path.slice(0, -4);
     const publishedDate = new Date(article.publishedAt).toString().slice(0, 15);
-    // const favoriteStar;
-    // isFavorite ? favoriteStar = ⭐️ : favoriteStar = ☆;
 
     return (
       <div className='Popup'>
@@ -22,11 +20,13 @@ export class Popup extends Component {
         <div className='Popup--info'>
           <div className='Popup--facts'>
             <h4 className='Popup--title'>{article.title.toUpperCase()}</h4>
-            <p className='Popup--author--pub'>{article.author}, {publishedDate}</p>
+            <p className='Popup--author-pub'>{article.author}, {publishedDate}</p>
             <p className='Popup--description'>{article.description}</p>
           </div>
           <div className='Popup--buttons'>
-            <a href={article.url} target='_blank'><button>READ</button></a>
+            <a href={article.url} target='_blank' rel='noopener noreferrer'>
+              <button>READ</button>
+            </a>
             <button>COPY</button>
           </div>
         </div>
