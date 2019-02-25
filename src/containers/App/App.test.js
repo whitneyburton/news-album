@@ -69,8 +69,8 @@ describe('App', () => {
         cryptoCoinsArticles: data.mockCryptoCoinsArticles,
         isLoading: false
       };
-      const result = mapStateToProps(mockState);
-      expect(result).toEqual(mockState);
+      const mappedProps = mapStateToProps(mockState);
+      expect(mappedProps).toEqual(mockState);
     });
   });
 
