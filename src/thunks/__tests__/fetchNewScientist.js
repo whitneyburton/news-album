@@ -1,16 +1,18 @@
-import { fetchCryptoCoins } from '../fetchCryptoCoins';
-import { setCryptoCoins, setError, toggleLoading } from '../../actions';
+import React from 'react';
 import * as api from '../../utils/api';
+import { setNewScientist, setError, toggleLoading } from '../../actions';
+import { apiKey } from '../../utils/api-key';
+import { fetchNewScientist } from '../fetchNewScientist';
 import * as data from '../../mockData';
 
-describe('fetchCryptoCoins', () => {
-  const mockUrl = 'https://newsapi.org/v2/top-headlines?sources=crypto-coins-news';
-  const thunk = fetchCryptoCoins();
+describe('fetchNewScientist', () => {
+  const mockUrl = `https://newsapi.org/v2/top-headlines?sources=new-scientist&apiKey=${apiKey}`
+  const thunk = fetchNewScientist();
   const mockDispatch = jest.fn();
 
   beforeEach(() => {
     api.fetchData = jest.fn(() => Promise.resolve({
-      json: () => Promise.resolve(data.mockCryptoCoinsArticles),
+      json: () => Promise.resolve(data.mockNewScienceArticlesObj),
       ok: true
     }));
   });
@@ -22,20 +24,20 @@ describe('fetchCryptoCoins', () => {
 
   it('should call fetchData with the correct params', async () => {
     await thunk(mockDispatch);
-    expect(mockDispatch).toHaveBeenCalledWith(mockUrl);
+    expect(api.fetchData).toHaveBeenCalledWith(mockUrl);
   });
 
-  it('should call setCryptoCoins with the articles', async () => {
+  it('should dispatch setNewScientist with the articles', async () => {
     await thunk(mockDispatch);
-    expect(mockDispatch).toHaveBeenCalledWith(setCryptoCoins(data.mockCryptoCoinsArticles));
+    expect(mockDispatch).toHaveBeenCalledWith(setNewScientist(data.mockNewScienceArticlesObj.articles))
   });
 
-  it('should dispatch toggleLoading with true', async () => {
+  it('should dispatch toggleLoading with false', async () => {
     await thunk(mockDispatch);
     expect(mockDispatch).toHaveBeenCalledWith(toggleLoading(false));
   });
 
-  it('should dispatch setError with the message', async () => {
+  it('should call setError with the error message', async () => {
     api.fetchData = jest.fn(() => { throw new Error('Articles not found.') });
     await thunk(mockDispatch);
     expect(mockDispatch).toHaveBeenCalledWith(setError('Articles not found.'));
