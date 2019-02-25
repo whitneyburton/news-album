@@ -6,11 +6,15 @@ exports[`Article should match the snapshot 1`] = `
   replace={false}
   to="/national-geographic/undefined"
 >
-  <p
-    className="Article--title"
+  <div
+    className="Article--title-container"
   >
-    LIONS AND TIGERS AND BEARS
-  </p>
+    <p
+      className="Article--title"
+    >
+      LIONS AND TIGERS AND BEARS
+    </p>
+  </div>
   <img
     alt="article"
     className="Article--image"
