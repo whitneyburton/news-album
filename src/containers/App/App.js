@@ -31,7 +31,7 @@ export class App extends Component {
       currentArticle = newScientistArticles.find(article => article.id === id);
     }
     return currentArticle ? ([
-      <ArticleContainer match={match} />,
+      <ArticleContainer match={match} isDisabled={true} />,
       <Popup currentArticle={currentArticle} match={match} />]) :
       <Error404 />;
   }
@@ -96,5 +96,11 @@ export const mapDispatchToProps = (dispatch) => ({
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 App.propTypes = {
-  fetchArticles: PropTypes.func
+  fetchNatGeo: PropTypes.func,
+  fetchNewScientist: PropTypes.func,
+  fetchCryptoCoins: PropTypes.func,
+  natGeoArticles: PropTypes.array,
+  newScientistArticles: PropTypes.array,
+  cryptoCoinsArticles: PropTypes.array,
+  isLoading: PropTypes.bool
 }

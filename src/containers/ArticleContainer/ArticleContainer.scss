@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   margin-left: -30px;
-  // width: auto;
 
   .columns {
     padding-left: 30px; 
@@ -13,4 +12,10 @@
     background: grey;
     margin-bottom: 30px;
   }
+}
+
+.ArticleContainer--disabled {
+  @extend .ArticleContainer;
+  pointer-events: none;
+  filter: opacity(1.9) blur(1.7px);
 }

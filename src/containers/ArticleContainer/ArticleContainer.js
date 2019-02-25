@@ -30,6 +30,9 @@ export class ArticleContainer extends Component {
   }
 
   render() {
+    const { isDisabled } = this.props;
+    const disabledClass = isDisabled ? '--disabled' : '';
+
     const breakpoints = {
       default: 3,
       1500: 2,
@@ -39,8 +42,8 @@ export class ArticleContainer extends Component {
     return (
       <Masonry
         breakpointCols={breakpoints}
-        className="ArticleContainer"
-        columnClassName="columns">
+        className={'ArticleContainer' + disabledClass}
+        columnClassName='columns'>
         {this.generateArticleCategory()}
       </Masonry>
     )
