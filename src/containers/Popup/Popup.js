@@ -44,6 +44,7 @@ export class Popup extends Component {
               <button>READ</button>
             </a>
             <CopyToClipboard
+              className='CopyToClipboard--button'
               text={article.url}
               onCopy={() => this.setState({ copied: true })}>
               <button>{copied}</button>

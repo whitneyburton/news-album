@@ -1,3 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Popup should match the snapshot 1`] = `undefined`;
+exports[`Popup should match the snapshot 1`] = `
+<div
+  className="Popup"
+>
+  <Link
+    replace={false}
+    to="https://localhost.com/national-geographic"
+  >
+    <img
+      alt="close icon"
+      className="Popup--close"
+      src="close.svg"
+    />
+  </Link>
+  <img
+    alt="star icon"
+    className="Popup--star"
+    src="favstar.svg"
+  />
+  <div
+    className="Popup--info"
+  >
+    <div
+      className="Popup--facts"
+    >
+      <h4
+        className="Popup--title"
+      >
+        LIONS AND TIGERS AND BEARS
+      </h4>
+      <p
+        className="Popup--author-pub"
+      >
+        , 
+        Mon Feb 18 2019
+      </p>
+      <p
+        className="Popup--description"
+      />
+    </div>
+    <div
+      className="Popup--buttons"
+    >
+      <a
+        href="www.nationalgeographic.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <button>
+          READ
+        </button>
+      </a>
+      <CopyToClipboard
+        className="CopyToClipboard--button"
+        onCopy={[Function]}
+        text="www.nationalgeographic.com"
+      >
+        <button>
+          COPY
+        </button>
+      </CopyToClipboard>
+    </div>
+  </div>
+  <img
+    alt="article"
+    className="Popup--image"
+    src="www.image.com"
+  />
+</div>
+`;
