@@ -44,7 +44,7 @@
     "collectCoverageFrom": [
       "src/*/*.js",
       "src/*/*/*.js",
-      "!src/mockNotes/*.js",
+      "!src/mockData/*.js",
       "!src/reducers/index.js",
       "!src/serviceWorker.js"
     ]
