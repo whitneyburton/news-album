@@ -4,34 +4,7 @@ exports[`App App component should match the snapshot 1`] = `
 <div
   className="App"
 >
-  <h1>
-    news
-    <span>
-      album
-    </span>
-  </h1>
-  <div
-    className="App--quote-and-favorites"
-  >
-    <div>
-      <h2
-        className="App--learn"
-      >
-        LEARN +
-      </h2>
-      <h2
-        className="App--get-inspired"
-      >
-        GET INSPIRED.
-      </h2>
-    </div>
-    <h3>
-      my
-      <span>
-        favorites
-      </span>
-    </h3>
-  </div>
+  <Header />
   <Nav />
   <Switch>
     <Route
@@ -74,34 +47,7 @@ exports[`App App component should match the snapshot when isLoading is true 1`] 
 <div
   className="App"
 >
-  <h1>
-    news
-    <span>
-      album
-    </span>
-  </h1>
-  <div
-    className="App--quote-and-favorites"
-  >
-    <div>
-      <h2
-        className="App--learn"
-      >
-        LEARN +
-      </h2>
-      <h2
-        className="App--get-inspired"
-      >
-        GET INSPIRED.
-      </h2>
-    </div>
-    <h3>
-      my
-      <span>
-        favorites
-      </span>
-    </h3>
-  </div>
+  <Header />
   <Nav />
   <Switch>
     <Route

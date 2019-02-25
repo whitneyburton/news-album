@@ -6,6 +6,7 @@ import ArticleContainer from '../ArticleContainer/ArticleContainer';
 import { Loader } from '../../components/Loader/Loader';
 import { Popup } from '../Popup/Popup';
 import { Home } from '../../components/Home/Home';
+import { Header } from '../../components/Header/Header';
 import { Nav } from '../../components/Nav/Nav';
 import { Error404 } from '../../components/Error404/Error404';
 import { fetchCryptoCoins } from '../../thunks/fetchCryptoCoins';
@@ -40,14 +41,7 @@ export class App extends Component {
     const { isLoading } = this.props;
     return (
       <div className="App">
-        <h1>news<span>album</span></h1>
-        <div className='App--quote-and-favorites'>
-          <div>
-            <h2 className='App--learn'>LEARN +</h2>
-            <h2 className='App--get-inspired'>GET INSPIRED.</h2>
-          </div>
-          <h3>my<span>favorites</span></h3>
-        </div>
+        <Header />
         <Nav />
         {isLoading && <Loader />}
         <Switch>
