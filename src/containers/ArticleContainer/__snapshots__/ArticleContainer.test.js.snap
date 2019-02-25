@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleContainer should match the snapshot 1`] = `
+<Masonry
+  breakpointCols={
+    Object {
+      "1500": 2,
+      "850": 1,
+      "default": 3,
+    }
+  }
+  className="ArticleContainer"
+  columnClassName="columns"
+/>
+`;
