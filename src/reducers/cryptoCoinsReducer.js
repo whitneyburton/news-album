@@ -5,6 +5,7 @@ export const cryptoCoinsReducer = (state = [], action) => {
     case 'SET_CRYPTO_COINS':
       action.articles.forEach(article => {
         article.id = shortid.generate();
+        article.isFavorite = false;
       });
       return action.articles;
     default:

@@ -5,6 +5,7 @@ export const natGeoReducer = (state = [], action) => {
     case 'SET_NATIONAL_GEOGRAPHIC':
       action.articles.forEach(article => {
         article.id = shortid.generate();
+        article.isFavorite = false;
       });
       return action.articles;
     default:
