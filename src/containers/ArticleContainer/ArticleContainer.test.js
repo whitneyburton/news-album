@@ -5,18 +5,17 @@ import { Article } from '../Article/Article';
 import * as data from '../../mockData';
 
 const mockProps = {
+  match: { params: { id: 'a' }, path: 'national-geographic/a' },
   natGeoArticles: data.mockNatGeoArticles,
   newScientistArticles: data.mockNewScienceArticles,
-  cryptoCoinsArticles: data.mockCryptoCoinsArticles,
+  cryptoCoinsArticles: data.mockCryptoCoinsArticles
 };
-
-const mockMatch = { params: { id: 'a' }, path: 'national-geographic/a' };
 
 describe('ArticleContainer', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<ArticleContainer {...mockProps} match={mockMatch} />);
+    wrapper = shallow(<ArticleContainer {...mockProps} />);
   });
 
   it('should match the snapshot', () => {
@@ -24,7 +23,10 @@ describe('ArticleContainer', () => {
   });
 
   describe('generateArticleCategory', () => {
-
+    it.skip('should return an Article component when there is a NAT GEO path', () => {
+      const result = wrapper.instance().generateArticleCategory();
+      expect(result).toHaveLength(10);
+    });
   });
 
   describe('mapStateToProps', () => {
