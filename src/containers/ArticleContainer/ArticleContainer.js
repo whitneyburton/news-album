@@ -24,6 +24,21 @@ export class ArticleContainer extends Component {
         return newScientistArticles.map(article => {
           return <Article key={article.id} article={article} />
         });
+      case '/favorites':
+        const allArticles = [...natGeoArticles, ...cryptoCoinsArticles, ...newScientistArticles];
+        const favoriteTitles = JSON.parse(localStorage.getItem('favorites')) || [];
+        const favoriteArticles = allArticles.reduce((acc, article) => {
+          favoriteTitles.forEach(title => {
+            if (article.title === title) {
+              acc.push(article);
+            }
+          })
+          return acc;
+        }, [])
+        console.log(favoriteArticles)
+        return favoriteArticles.map(article => {
+          return <Article key={article.id} article={article} />
+        });
       default:
         return;
     }
