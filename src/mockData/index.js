@@ -162,3 +162,10 @@ export const mockCryptoCoinsArticlesObj = {
     }
   ]
 }
+
+export const mockNewSciArticlesStringified = {
+  "json": {
+    "articles": [{ "author": "Chelsea Whyte", "description": "Wolves everywhere!", "id": "c", "isFavorite": false, "publishedAt": "2019-02-23T00:00:00Z", "title": "Wolves are spreading in Germany", "url": "https://www.nationalgeographic.https://www.newscientist.com/article/2194696-wolves-are-spreading-in-germany-by-moving-into-military-land//animals/2019/02/why-insect-populations-are-plummeting-and-why-it-matters.html", "urlToImage": "https://images.newscientist.com/wp-content/uploads/2019/02/22145340/rm7694.jpg" }, { "author": "Leah Crane", "description": "Scary stars!", "id": "d", "isFavorite": false, "publishedAt": "2019-02-22T00:00:00Z", "title": "Four stars full of burnt nuclear ash", "url": "https://www.newscientist.com/article/2194683-four-stars-full-of-burnt-nuclear-ash-are-speeding-through-the-galaxy/", "urlToImage": "https://images.newscientist.com/wp-content/uploads/2019/02/22150921/vennes1hr.jpg" }]
+  },
+  "ok": true
+}
