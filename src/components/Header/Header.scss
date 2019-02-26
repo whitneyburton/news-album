@@ -1,0 +1,36 @@
+.Header--quote-and-favorites {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.Header--Link {
+  color: #000;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: right;
+  margin: 0;
+  padding-bottom: 10px;
+
+  span {
+    font-weight: 300;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  margin-left: 20px;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  text-align: right;
+  text-decoration: underline;
+
+  span {
+    font-weight: 300;
+  }
+}
