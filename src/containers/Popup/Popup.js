@@ -1,24 +1,36 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setFavorites } from '../../actions';
 import PropTypes from 'prop-types';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import closeicon from '../../images/close.svg';
-import staricon from '../../images/favstar.svg';
+import staricon from '../../images/star.svg';
+import favstaricon from '../../images/favstar.svg';
 
 export class Popup extends Component {
   constructor() {
     super();
     this.state = {
-      copied: false
+      copied: false,
     }
   }
 
+  handleClick = () => {
+    this.props.setFavorites(this.props.currentArticle)
+    const title = this.props.currentArticle.title;
+    const parsedStorage = JSON.parse(localStorage.getItem('favorites')) || [];
+    if (!parsedStorage.includes(title)) {
+      parsedStorage.push(title);
+      localStorage.setItem('favorites', JSON.stringify(parsedStorage))
+    } else if (parsedStorage.includes(title)) {
+      const removedItemStorage = parsedStorage.filter(item => item !== title);
+      localStorage.setItem('favorites', JSON.stringify(removedItemStorage))      
+    } 
+  }
+
   toggleCopied = () => {
-    if (this.state.copied) {
-      return 'COPIED!'
-    } else {
-      return 'COPY'
-    }
+    return this.state.copied ? 'COPIED!' : 'COPY';
   }
 
   render() {
@@ -32,7 +44,12 @@ export class Popup extends Component {
         <Link to={previousUrl}>
           <img src={closeicon} className='Popup--close' alt='close icon' />
         </Link>
-        <img src={staricon} className='Popup--star' alt='star icon' />
+        {
+          article.isFavorite ?
+            <img src={favstaricon} onClick={this.handleClick} className='Popup--star' alt='star icon' /> :
+            <img src={staricon} onClick={this.handleClick} className='Popup--star' alt='star icon' />
+            
+        }
         <div className='Popup--info'>
           <div className='Popup--facts'>
             <h4 className='Popup--title'>{article.title.toUpperCase()}</h4>
@@ -57,7 +74,14 @@ export class Popup extends Component {
   }
 }
 
+export const mapDispatchToProps = (dispatch) => ({
+  setFavorites: (article) => dispatch(setFavorites(article))
+})
+
+export default connect(null, mapDispatchToProps)(Popup)
+
 Popup.propTypes = {
   article: PropTypes.object,
-  match: PropTypes.object
+  match: PropTypes.object,
+  setFavorites: PropTypes.func
 }
