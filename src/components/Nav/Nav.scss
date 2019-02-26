@@ -1,0 +1,19 @@
+.Nav--NavLink-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+
+  .Nav--nav-btn {
+    width: 30%;
+    text-align: center;
+    margin: auto 22px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 2px;
+    padding: 7px;
+    border-radius: 12px;
+    background-color: #4C3E3E;
+  }
+}
