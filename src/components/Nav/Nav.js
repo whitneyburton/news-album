@@ -6,22 +6,26 @@ export const Nav = () => {
     <div className='App--NavLink-container'>
       <NavLink
         to='/'
-        className='App--nav-btn'>
+        className='App--nav-btn'
+        activeClassName='active'>
         Home
       </NavLink>
       <NavLink
         to='/national-geographic'
-        className='App--nav-btn'>
+        className='App--nav-btn'
+        activeClassName='active'>
         National Geographic
       </NavLink>
       <NavLink
         to='/new-scientist'
-        className='App--nav-btn'>
+        className='App--nav-btn'
+        activeClassName='active'>
         The New Scientist
       </NavLink>
       <NavLink
         to='/crypto-coins'
-        className='App--nav-btn'>
+        className='App--nav-btn'
+        activeClassName='active'>
         Crypto Coins News
       </NavLink>
     </div>
