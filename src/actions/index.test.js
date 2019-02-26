@@ -12,6 +12,7 @@ describe('actions', () => {
       expect(result).toEqual(expected);
     });
   });
+
   describe('setCryptoCoins', () => {
     it('should return an object with a SET_CRYPTO_COINS type and articles', () => {
       const expected = {
@@ -22,6 +23,7 @@ describe('actions', () => {
       expect(result).toEqual(expected);
     });
   });
+
   describe('setNewScientist', () => {
     it('should return an object with a SET_NEW_SCIENTIST type and articles', () => {
       const expected = {
@@ -32,6 +34,7 @@ describe('actions', () => {
       expect(result).toEqual(expected);
     });
   });
+
   describe('toggleLoading', () => {
     it('should return an object with a TOGGLE_LOADING type and bool', () => {
       const expected = {
@@ -42,6 +45,7 @@ describe('actions', () => {
       expect(result).toEqual(expected);
     });
   });
+  
   describe('setError', () => {
     it('should return an object with a SET_ERROR type and bool', () => {
       const expected = {
