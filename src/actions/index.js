@@ -22,3 +22,8 @@ export const setError = (message) => ({
   type: 'SET_ERROR',
   message
 });
+
+export const setFavorites = (article) => ({
+  type: 'SET_FAVORITES',
+  article
+});
