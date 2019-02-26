@@ -72,7 +72,7 @@ export class App extends Component {
         <Header />
         <Nav />
         {isLoading && <Loader />}
-        <Switch>
+        {!isLoading && <Switch>
           <Route
             path='/crypto-coins/:id'
             render={this.getArticleRoute} />
@@ -91,12 +91,12 @@ export class App extends Component {
           <Route
             path='/crypto-coins'
             render={({ match }) => <ArticleContainer match={match} />} />
-          <Route
-            exact
-            path='/'
-            component={Home} />
+          {/* <Route
+            path='/favorites'
+            render={({ match }) => <ArticleContainer match={match} />} /> */}
+          <Route exact path='/' component={Home} />
           <Route component={Error404} />
-        </Switch>
+        </Switch>}
       </div>
     );
   }
