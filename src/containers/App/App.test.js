@@ -58,6 +58,11 @@ describe('App', () => {
       expect(mockProps.fetchNewScientist).toHaveBeenCalled();
     });
 
+    it.skip('should render ArticleContainer with a match for national-geographic', () => {
+      wrapper.instance().getArticleRoute({ match: mockMatch });
+      expect(wrapper.find('.ArticleContainer')).toHaveLength(1);
+    })
+
     describe('getArticleRoute', () => {
       it('should return the ArticleContainer and Popup components when there is a NAT GEO currentArticle', () => {
         const result = wrapper.instance().getArticleRoute({ match: mockMatch });
