@@ -9,26 +9,33 @@ exports[`Header should match the snapshot 1`] = `
     </span>
   </h1>
   <div
-    className="App--quote-and-favorites"
+    className="Header--quote-and-favorites"
   >
     <div>
       <h2
-        className="App--learn"
+        className="Header--learn"
       >
         LEARN +
       </h2>
       <h2
-        className="App--get-inspired"
+        className="Header--get-inspired"
       >
         GET INSPIRED.
       </h2>
     </div>
-    <h3>
-      my
-      <span>
-        favorites
-      </span>
-    </h3>
+    <Link
+      className="Header--Link"
+      replace={false}
+      to="/favorites"
+    >
+      <h3>
+        my
+        <span>
+          favorites
+        </span>
+        0
+      </h3>
+    </Link>
   </div>
 </Fragment>
 `;

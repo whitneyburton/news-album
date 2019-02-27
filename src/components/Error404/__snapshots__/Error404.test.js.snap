@@ -5,7 +5,17 @@ exports[`Error404 should match the snapshot 1`] = `
   className="Error404"
 >
   <p>
-    Error
+    We're sorry,
   </p>
+  <p>
+    There was an error loading this article.
+  </p>
+  <Link
+    className="Error404--go-back"
+    replace={false}
+    to="/"
+  >
+    Go Back
+  </Link>
 </div>
 `;

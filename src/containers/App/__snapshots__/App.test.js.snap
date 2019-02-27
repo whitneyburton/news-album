@@ -20,6 +20,10 @@ exports[`App App component should match the snapshot 1`] = `
       render={[Function]}
     />
     <Route
+      path="/favorites/:id"
+      render={[Function]}
+    />
+    <Route
       path="/national-geographic"
       render={[Function]}
     />
@@ -29,6 +33,10 @@ exports[`App App component should match the snapshot 1`] = `
     />
     <Route
       path="/crypto-coins"
+      render={[Function]}
+    />
+    <Route
+      path="/favorites"
       render={[Function]}
     />
     <Route

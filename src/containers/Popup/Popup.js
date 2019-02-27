@@ -45,7 +45,7 @@ export class Popup extends Component {
         <Link to={previousUrl}>
           <img src={closeicon} className='Popup--close' alt='close icon' />
         </Link>
-        <img src={icon} onClick={this.handleClick} className='Popup--star' alt='star icon' /> :
+        <img src={icon} onClick={this.handleClick} className='Popup--star' alt='star icon' />
         <div className='Popup--info'>
           <div className='Popup--facts'>
             <h4 className='Popup--title'>{article.title.toUpperCase()}</h4>
