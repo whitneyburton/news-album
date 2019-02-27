@@ -5,9 +5,10 @@ import shortid from 'shortid';
 
 export const fetchNewScientist = () => {
   return async (dispatch) => {
+    const url = `https://newsapi.org/v2/top-headlines?sources=new-scientist&apiKey=${apiKey}`;
     try {
       dispatch(toggleLoading(true));
-      const response = await fetchData(`https://newsapi.org/v2/top-headlines?sources=new-scientist&apiKey=${apiKey}`);
+      const response = await fetchData(url);
       const result = await response.json();
       const articles = result.articles.map(article => {
         article.id = shortid.generate();

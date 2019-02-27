@@ -5,9 +5,10 @@ import shortid from 'shortid';
 
 export const fetchCryptoCoins = () => {
   return async (dispatch) => {
+    const url = `https://newsapi.org/v2/top-headlines?sources=crypto-coins-news&apiKey=${apiKey}`;
     try {
       dispatch(toggleLoading(true));
-      const response = await fetchData(`https://newsapi.org/v2/top-headlines?sources=crypto-coins-news&apiKey=${apiKey}`);
+      const response = await fetchData(url);
       const result = await response.json();
       const articles = result.articles.map(article => {
         article.id = shortid.generate();
