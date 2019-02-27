@@ -3,14 +3,14 @@
   justify-content: space-between;
   background-color: #1f1f1f;
   width: 95%;
-  height: 60%;
+  height: 65%;
   position: fixed;
   z-index: 1;
   margin: auto;
   top: 20%;
   color: #fff;
   left: 2.4%;
-  
+
   .Popup--info {
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
     font-size: 22px;
     font-weight: 300;
   }
-  
+
   .Popup--facts {
     padding: 15px;
   }
@@ -52,7 +52,7 @@
       background-color: #424242;
     }
   }
-  
+
   .Popup--close {
     position: absolute;
     background-color: #1f1f1f;
@@ -60,7 +60,7 @@
     padding: 10px 12px;
     border-radius: 50%;
     left: 88%;
-    cursor: pointer;    
+    cursor: pointer;
     color: #000;
     transition: all 500ms ease;
 
@@ -94,5 +94,86 @@ button {
 
   &:focus {
     outline: none;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .Popup {
+    flex-direction: column;
+    display: flex;
+    top: 10%;
+    left: 1.4%;
+    width: 97%;
+    height: 80%;
+
+    .Popup--info {
+      overflow: scroll;
+      font-size: 16px;
+      padding-top: 0;
+    }
+
+    .Popup--author-pub {
+      padding: 0%;
+    }
+
+    .Popup--facts {
+      padding: 0px;
+    }
+
+    .Popup--title {
+      font-size: 1.4em;
+      padding-top: 2%;
+    }
+
+    .Popup--delete-fav {
+      display: flex;
+      justify-content: space-evenly;
+      padding-top: 10px;
+
+      .Popup--star {
+        position: unset;
+        background-color: #727272;
+      }
+
+      .Popup--close {
+        position: unset;
+        background-color: #727272;
+      }
+    }
+
+    .Popup--buttons {
+      text-align: center;
+      margin: 0;
+    }
+
+    .Popup--image {
+      margin: auto;
+      height: 54%;
+    }
+
+    button {
+      border-radius: 20px;
+      font-size: 13px;
+      width: 35%;
+      height: 30px;
+      margin-top: 10px;
+      font-weight: 400;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Popup {
+    .Popup--image {
+      width: 75%;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Popup {
+    .Popup--image {
+      height: 45%;
+    }
   }
 }

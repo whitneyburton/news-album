@@ -42,10 +42,12 @@ export class Popup extends Component {
 
     return (
       <div className='Popup'>
-        <Link to={previousUrl}>
-          <img src={closeicon} className='Popup--close' alt='close icon' />
-        </Link>
-        <img src={icon} onClick={this.handleClick} className='Popup--star' alt='star icon' />
+        <div className='Popup--delete-fav'>
+          <Link to={previousUrl}>
+            <img src={closeicon} className='Popup--close' alt='close icon' />
+          </Link>
+          <img src={icon} onClick={this.handleClick} className='Popup--star' alt='star icon' />
+        </div>
         <div className='Popup--info'>
           <div className='Popup--facts'>
             <h4 className='Popup--title'>{article.title.toUpperCase()}</h4>
