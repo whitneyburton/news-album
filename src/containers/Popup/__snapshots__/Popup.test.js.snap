@@ -4,22 +4,26 @@ exports[`Popup should match the snapshot 1`] = `
 <div
   className="Popup"
 >
-  <Link
-    replace={false}
-    to="https://localhost.com/national-geographic"
+  <div
+    className="Popup--delete-fav"
   >
+    <Link
+      replace={false}
+      to="https://localhost.com/national-geographic"
+    >
+      <img
+        alt="close icon"
+        className="Popup--close"
+        src="close.svg"
+      />
+    </Link>
     <img
-      alt="close icon"
-      className="Popup--close"
-      src="close.svg"
+      alt="star icon"
+      className="Popup--star"
+      onClick={[Function]}
+      src="star.svg"
     />
-  </Link>
-  <img
-    alt="star icon"
-    className="Popup--star"
-    onClick={[Function]}
-    src="star.svg"
-  />
+  </div>
   <div
     className="Popup--info"
   >

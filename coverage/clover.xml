@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1551252792466" clover="3.2.0">
-  <project timestamp="1551252792467" name="All files">
-    <metrics statements="204" coveredstatements="191" conditionals="87" coveredconditionals="74" methods="72" coveredmethods="63" elements="363" coveredelements="328" complexity="0" loc="204" ncloc="204" packages="13" files="20" classes="20">
+<coverage generated="1551282515620" clover="3.2.0">
+  <project timestamp="1551282515621" name="All files">
+    <metrics statements="207" coveredstatements="194" conditionals="88" coveredconditionals="75" methods="72" coveredmethods="63" elements="367" coveredelements="332" complexity="0" loc="207" ncloc="207" packages="13" files="20" classes="20">
       <package name="actions">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
         <file name="index.js" path="/Users/whitneyburton/Documents/turing/mod3/news-album/src/actions/index.js">
@@ -75,9 +75,9 @@
         </file>
       </package>
       <package name="containers.App">
-        <metrics statements="48" coveredstatements="41" conditionals="24" coveredconditionals="20" methods="23" coveredmethods="17"/>
+        <metrics statements="48" coveredstatements="41" conditionals="25" coveredconditionals="21" methods="23" coveredmethods="17"/>
         <file name="App.js" path="/Users/whitneyburton/Documents/turing/mod3/news-album/src/containers/App/App.js">
-          <metrics statements="48" coveredstatements="41" conditionals="24" coveredconditionals="20" methods="23" coveredmethods="17"/>
+          <metrics statements="48" coveredstatements="41" conditionals="25" coveredconditionals="21" methods="23" coveredmethods="17"/>
           <line num="19" count="20" type="stmt"/>
           <line num="20" count="20" type="stmt"/>
           <line num="21" count="20" type="stmt"/>
@@ -175,13 +175,13 @@
           <line num="26" count="2" type="cond" truecount="1" falsecount="1"/>
           <line num="27" count="2" type="stmt"/>
           <line num="28" count="2" type="stmt"/>
-          <line num="33" count="13" type="cond" truecount="2" falsecount="0"/>
+          <line num="32" count="13" type="cond" truecount="2" falsecount="0"/>
+          <line num="35" count="11" type="stmt"/>
+          <line num="36" count="11" type="stmt"/>
           <line num="37" count="11" type="stmt"/>
           <line num="38" count="11" type="stmt"/>
-          <line num="39" count="11" type="stmt"/>
-          <line num="40" count="11" type="stmt"/>
-          <line num="41" count="11" type="cond" truecount="1" falsecount="1"/>
-          <line num="43" count="11" type="stmt"/>
+          <line num="39" count="11" type="cond" truecount="1" falsecount="1"/>
+          <line num="41" count="11" type="stmt"/>
           <line num="62" count="1" type="stmt"/>
           <line num="73" count="2" type="stmt"/>
           <line num="74" count="1" type="stmt"/>
@@ -239,54 +239,57 @@
         </file>
       </package>
       <package name="thunks">
-        <metrics statements="39" coveredstatements="39" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="9"/>
+        <metrics statements="42" coveredstatements="42" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="9"/>
         <file name="fetchCryptoCoins.js" path="/Users/whitneyburton/Documents/turing/mod3/news-album/src/thunks/fetchCryptoCoins.js">
-          <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="6" count="2" type="stmt"/>
           <line num="7" count="1" type="stmt"/>
           <line num="8" count="5" type="stmt"/>
           <line num="9" count="5" type="stmt"/>
           <line num="10" count="5" type="stmt"/>
-          <line num="11" count="4" type="stmt"/>
+          <line num="11" count="5" type="stmt"/>
           <line num="12" count="4" type="stmt"/>
-          <line num="13" count="8" type="stmt"/>
+          <line num="13" count="4" type="stmt"/>
           <line num="14" count="8" type="stmt"/>
           <line num="15" count="8" type="stmt"/>
-          <line num="17" count="4" type="stmt"/>
+          <line num="16" count="8" type="stmt"/>
           <line num="18" count="4" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
+          <line num="19" count="4" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
         </file>
         <file name="fetchNatGeo.js" path="/Users/whitneyburton/Documents/turing/mod3/news-album/src/thunks/fetchNatGeo.js">
-          <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="6" count="2" type="stmt"/>
           <line num="7" count="1" type="stmt"/>
           <line num="8" count="5" type="stmt"/>
           <line num="9" count="5" type="stmt"/>
           <line num="10" count="5" type="stmt"/>
-          <line num="11" count="4" type="stmt"/>
+          <line num="11" count="5" type="stmt"/>
           <line num="12" count="4" type="stmt"/>
-          <line num="13" count="8" type="stmt"/>
+          <line num="13" count="4" type="stmt"/>
           <line num="14" count="8" type="stmt"/>
           <line num="15" count="8" type="stmt"/>
-          <line num="17" count="4" type="stmt"/>
+          <line num="16" count="8" type="stmt"/>
           <line num="18" count="4" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
+          <line num="19" count="4" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
         </file>
         <file name="fetchNewScientist.js" path="/Users/whitneyburton/Documents/turing/mod3/news-album/src/thunks/fetchNewScientist.js">
-          <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="6" count="2" type="stmt"/>
           <line num="7" count="1" type="stmt"/>
           <line num="8" count="5" type="stmt"/>
           <line num="9" count="5" type="stmt"/>
           <line num="10" count="5" type="stmt"/>
-          <line num="11" count="4" type="stmt"/>
+          <line num="11" count="5" type="stmt"/>
           <line num="12" count="4" type="stmt"/>
-          <line num="13" count="8" type="stmt"/>
+          <line num="13" count="4" type="stmt"/>
           <line num="14" count="8" type="stmt"/>
           <line num="15" count="8" type="stmt"/>
-          <line num="17" count="4" type="stmt"/>
+          <line num="16" count="8" type="stmt"/>
           <line num="18" count="4" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
+          <line num="19" count="4" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
         </file>
       </package>
       <package name="utils">

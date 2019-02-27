@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setFavorites } from '../../actions';
 import PropTypes from 'prop-types';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { setFavorites } from '../../actions';
 import closeicon from '../../images/close.svg';
 import staricon from '../../images/star.svg';
 import favstaricon from '../../images/favstar.svg';
@@ -17,21 +17,19 @@ export class Popup extends Component {
   }
 
   handleClick = () => {
-    this.props.setFavorites(this.props.currentArticle)
+    this.props.setFavorites(this.props.currentArticle);
     const title = this.props.currentArticle.title;
     const parsedStorage = JSON.parse(localStorage.getItem('favorites')) || [];
     if (!parsedStorage.includes(title)) {
       parsedStorage.push(title);
-      localStorage.setItem('favorites', JSON.stringify(parsedStorage))
+      localStorage.setItem('favorites', JSON.stringify(parsedStorage));
     } else if (parsedStorage.includes(title)) {
       const removedItemStorage = parsedStorage.filter(item => item !== title);
-      localStorage.setItem('favorites', JSON.stringify(removedItemStorage))      
+      localStorage.setItem('favorites', JSON.stringify(removedItemStorage));
     } 
   }
 
-  toggleCopied = () => {
-    return this.state.copied ? 'COPIED!' : 'COPY';
-  }
+  toggleCopied = () => this.state.copied ? 'COPIED!' : 'COPY';
 
   render() {
     const { currentArticle: article, match } = this.props;
@@ -76,7 +74,7 @@ export const mapDispatchToProps = (dispatch) => ({
   setFavorites: (article) => dispatch(setFavorites(article))
 })
 
-export default connect(null, mapDispatchToProps)(Popup)
+export default connect(null, mapDispatchToProps)(Popup);
 
 Popup.propTypes = {
   currentArticle: PropTypes.object,
