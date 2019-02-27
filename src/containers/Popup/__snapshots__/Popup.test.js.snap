@@ -29,23 +29,26 @@ exports[`Popup should match the snapshot 1`] = `
       <h4
         className="Popup--title"
       >
-        LIONS AND TIGERS AND BEARS
+        WHY INSECT POPULATIONS ARE PLUMMETING
       </h4>
       <p
         className="Popup--author-pub"
       >
+        Douglas Main
         , 
         Mon Feb 18 2019
       </p>
       <p
         className="Popup--description"
-      />
+      >
+        Sad insects.
+      </p>
     </div>
     <div
       className="Popup--buttons"
     >
       <a
-        href="www.nationalgeographic.com"
+        href="https://www.nationalgeographic.com/animals/2019/02/why-insect-populations-are-plummeting-and-why-it-matters.html"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -56,7 +59,7 @@ exports[`Popup should match the snapshot 1`] = `
       <CopyToClipboard
         className="CopyToClipboard--button"
         onCopy={[Function]}
-        text="www.nationalgeographic.com"
+        text="https://www.nationalgeographic.com/animals/2019/02/why-insect-populations-are-plummeting-and-why-it-matters.html"
       >
         <button>
           COPY
@@ -67,7 +70,7 @@ exports[`Popup should match the snapshot 1`] = `
   <img
     alt="article"
     className="Popup--image"
-    src="www.image.com"
+    src="https://www.nationalgeographic.com/content/dam/animals/2019/02/insects-in-decline/01-insects-in-decline-nationalgeographic_1353541.jpg"
   />
 </div>
 `;

@@ -4,7 +4,7 @@ exports[`Article should match the snapshot 1`] = `
 <Link
   className="Article"
   replace={false}
-  to="/national-geographic/undefined"
+  to="/national-geographic/b"
 >
   <div
     className="Article--title-container"
@@ -12,13 +12,13 @@ exports[`Article should match the snapshot 1`] = `
     <p
       className="Article--title"
     >
-      LIONS AND TIGERS AND BEARS
+      WHY INSECT POPULATIONS ARE PLUMMETING
     </p>
   </div>
   <img
     alt="article"
     className="Article--image"
-    src="www.image.com"
+    src="https://www.nationalgeographic.com/content/dam/animals/2019/02/insects-in-decline/01-insects-in-decline-nationalgeographic_1353541.jpg"
   />
 </Link>
 `;
