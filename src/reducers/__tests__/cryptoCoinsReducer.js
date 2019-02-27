@@ -9,9 +9,16 @@ describe('cryptoCoinsReducer', () => {
     expect(result).toEqual(expected)
   });
   
-  it('should return an array of Crypto Coins News articles', () => {
+  it('case SET_CRYPTO_COINS should return an array of Crypto Coins News articles', () => {
     const expected = data.mockCryptoCoinsArticles;
     const result = cryptoCoinsReducer(undefined, actions.setCryptoCoins(data.mockCryptoCoinsArticles));
+    expect(result).toEqual(expected);
+  });
+
+  it('case SET_FAVORITES should return an array of articles', () => {
+    const initialState = data.mockCryptoCoinsArticles;
+    const expected = data.mockCryptoCoinsArticlesWithFav;
+    const result = cryptoCoinsReducer(initialState, actions.setFavorites(data.mockCryptoCoinsArticle));
     expect(result).toEqual(expected);
   });
 });
