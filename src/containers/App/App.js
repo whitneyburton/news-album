@@ -75,7 +75,7 @@ export class App extends Component {
         <Header />
         <Nav />
         {error && <Error404 />}
-        {isLoading && <Loader />}
+        {!error && isLoading && <Loader />}
         {!isLoading && <Switch>
           <Route
             path='/crypto-coins/:id'
