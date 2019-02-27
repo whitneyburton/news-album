@@ -69,11 +69,12 @@ export class App extends Component {
   }
 
   render() {
-    const { isLoading } = this.props;
+    const { isLoading, error } = this.props;
     return (
       <div className="App">
         <Header />
         <Nav />
+        {error && <Error404 />}
         {isLoading && <Loader />}
         {!isLoading && <Switch>
           <Route
@@ -112,7 +113,8 @@ export const mapStateToProps = (state) => ({
   natGeoArticles: state.natGeoArticles,
   newScientistArticles: state.newScientistArticles,
   cryptoCoinsArticles: state.cryptoCoinsArticles,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  error: state.error
 })
 
 export const mapDispatchToProps = (dispatch) => ({
