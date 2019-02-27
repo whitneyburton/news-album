@@ -5,7 +5,7 @@ export const Nav = () => {
   return (
     <div className='Nav--NavLink-container'>
         <NavLink
-          to='/'
+          exact to='/'
           className='Nav--nav-btn'
           activeClassName='active'>
           Home
