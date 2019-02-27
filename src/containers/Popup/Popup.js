@@ -77,7 +77,7 @@ export const mapDispatchToProps = (dispatch) => ({
 export default connect(null, mapDispatchToProps)(Popup)
 
 Popup.propTypes = {
-  article: PropTypes.object,
+  currentArticle: PropTypes.object,
   match: PropTypes.object,
   setFavorites: PropTypes.func
 }

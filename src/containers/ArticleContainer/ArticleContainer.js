@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Article } from '../Article/Article';
+import { Article } from '../../components/Article/Article';
 import Masonry from 'react-masonry-css';
 
 export class ArticleContainer extends Component {

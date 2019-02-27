@@ -5,7 +5,7 @@ exports[`ArticleContainer should match the snapshot 1`] = `
   breakpointCols={
     Object {
       "1500": 2,
-      "850": 1,
+      "950": 1,
       "default": 3,
     }
   }

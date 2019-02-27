@@ -2,7 +2,9 @@
 
 exports[`Header should match the snapshot 1`] = `
 <Fragment>
-  <h1>
+  <h1
+    className="Header--title"
+  >
     news
     <span>
       album
@@ -11,7 +13,9 @@ exports[`Header should match the snapshot 1`] = `
   <div
     className="Header--quote-and-favorites"
   >
-    <div>
+    <div
+      className="Header--quote"
+    >
       <h2
         className="Header--learn"
       >
@@ -28,7 +32,9 @@ exports[`Header should match the snapshot 1`] = `
       replace={false}
       to="/favorites"
     >
-      <h3>
+      <h3
+        className="Header--favorites"
+      >
         my
         <span>
           favorites

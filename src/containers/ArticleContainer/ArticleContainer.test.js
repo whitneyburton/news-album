@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ArticleContainer, mapStateToProps } from './ArticleContainer';
-import { Article } from '../Article/Article';
 import * as data from '../../mockData';
 
 const mockProps = {
