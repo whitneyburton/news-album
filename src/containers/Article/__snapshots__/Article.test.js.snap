@@ -4,7 +4,7 @@ exports[`Article should match the snapshot 1`] = `
 <Link
   className="Article"
   replace={false}
-  to="/national-geographic/b"
+  to="/favorites/b"
 >
   <div
     className="Article--title-container"
