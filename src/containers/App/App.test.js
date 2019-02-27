@@ -10,6 +10,7 @@ import { fetchNatGeo } from '../../thunks/fetchNatGeo';
 import { fetchCryptoCoins } from '../../thunks/fetchCryptoCoins';
 import { fetchNewScientist } from '../../thunks/fetchNewScientist';
 import * as data from '../../mockData';
+import * as actions from '../../actions';
 
 const mockProps = {
   natGeoArticles: data.mockNatGeoArticles,
@@ -18,7 +19,10 @@ const mockProps = {
   isLoading: false,
   fetchNatGeo: jest.fn(),
   fetchNewScientist: jest.fn(),
-  fetchCryptoCoins: jest.fn()
+  fetchCryptoCoins: jest.fn(),
+  setNatGeo: jest.fn(),
+  setNewScientist: jest.fn(),
+  setCryptoCoins: jest.fn()
 };
 
 const mockMatch = { params: { id: 'a' }, path: 'national-geographic/a' };
@@ -57,11 +61,6 @@ describe('App', () => {
       expect(mockProps.fetchCryptoCoins).toHaveBeenCalled();
       expect(mockProps.fetchNewScientist).toHaveBeenCalled();
     });
-
-    it.skip('should render ArticleContainer with a match for national-geographic', () => {
-      wrapper.instance().getArticleRoute({ match: mockMatch });
-      expect(wrapper.find('.ArticleContainer')).toHaveLength(1);
-    })
 
     describe('getArticleRoute', () => {
       it('should return the ArticleContainer and Popup components when there is a NAT GEO currentArticle', () => {
@@ -125,6 +124,22 @@ describe('App', () => {
       const actionToDispatch = fetchCryptoCoins();
       const mappedProps = mapDispatchToProps(mockDispatch);
       mappedProps.fetchCryptoCoins();
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+
+    it('should call dispatch with a setNewScientist action', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = actions.setNewScientist(data.mockNewScienceArticles);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.setNewScientist(data.mockNewScienceArticles);
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+
+    it('should call dispatch with a setCryptoCoins action', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = actions.setCryptoCoins(data.mockCryptoCoinsArticles);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.setCryptoCoins(data.mockCryptoCoinsArticles);
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
   });
