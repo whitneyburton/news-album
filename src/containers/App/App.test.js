@@ -32,6 +32,12 @@ jest.mock('../../thunks/fetchNatGeo.js');
 jest.mock('../../thunks/fetchNewScientist.js');
 
 describe('App', () => {
+  let wrapper;
+  
+  beforeEach(() => {
+    wrapper = shallow(<App {...mockProps} match={mockMatch} />)
+  });
+
   it('renders without crashing', () => {
     const div = document.createElement('div');
     const store = createStore(rootReducer);
@@ -39,53 +45,66 @@ describe('App', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  describe('App component', () => {
-    let wrapper;
+  it('should match the snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 
-    beforeEach(() => {
-      wrapper = shallow(<App {...mockProps} match={mockMatch} />)
+  it('should match the snapshot when isLoading is true', () => {
+    wrapper = shallow(<App {...mockProps} isLoading={true} />)
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should call fetchNatGeo, fetchCryptoCoins, and fetchNewScientist on componentDidMount', () => {
+    wrapper.instance().componentDidMount();
+    expect(mockProps.fetchNatGeo).toHaveBeenCalled();
+    expect(mockProps.fetchCryptoCoins).toHaveBeenCalled();
+    expect(mockProps.fetchNewScientist).toHaveBeenCalled();
+  });
+
+  describe('getArticleRoute', () => {
+    it('should return the ArticleContainer and Popup components when there is a NAT GEO currentArticle', () => {
+      const result = wrapper.instance().getArticleRoute({ match: mockMatch });
+      expect(result).toHaveLength(2);
     });
 
-    it('should match the snapshot', () => {
-      expect(wrapper).toMatchSnapshot();
+    it('should return the ArticleContainer and Popup components when there is a NEW SCIENTIST currentArticle', () => {
+      const mockMatch = { params: { id: 'c' }, path: 'new-scientist/c' };
+      const result = wrapper.instance().getArticleRoute({ match: mockMatch });
+      expect(result).toHaveLength(2);
     });
 
-    it('should match the snapshot when isLoading is true', () => {
-      wrapper = shallow(<App {...mockProps} isLoading={true} />)
-      expect(wrapper).toMatchSnapshot();
+    it('should return the ArticleContainer and Popup components when there is a CRYPTO COINS currentArticle', () => {
+      const mockMatch = { params: { id: 'e' }, path: 'crypto-coins/e' };
+      const result = wrapper.instance().getArticleRoute({ match: mockMatch });
+      expect(result).toHaveLength(2);
     });
 
-    it('should call fetchNatGeo, fetchCryptoCoins, and fetchNewScientist on componentDidMount', () => {
-      wrapper.instance().componentDidMount();
-      expect(mockProps.fetchNatGeo).toHaveBeenCalled();
-      expect(mockProps.fetchCryptoCoins).toHaveBeenCalled();
-      expect(mockProps.fetchNewScientist).toHaveBeenCalled();
+    it('should return the Error404 component when there is no currentArticle match', () => {
+      const mockMatch = { params: { id: 'z' }, path: 'national-geographic/z' };
+      const result = wrapper.instance().getArticleRoute({ match: mockMatch });
+      const errorWrapper = shallow(result);
+      expect(errorWrapper.find('.Error404')).toHaveLength(1);
+    });
+  });
+
+
+  describe('getFavoritesFromStorage', () => {
+    it('should call setNatGeo when there is a national geographic article in storage', () => {
+      localStorage.setItem('favorites', JSON.stringify(['Why insect populations are plummeting']));
+      wrapper.instance().getFavoritesFromStorage();
+      expect(mockProps.setNatGeo).toHaveBeenCalled();
     });
 
-    describe('getArticleRoute', () => {
-      it('should return the ArticleContainer and Popup components when there is a NAT GEO currentArticle', () => {
-        const result = wrapper.instance().getArticleRoute({ match: mockMatch });
-        expect(result).toHaveLength(2);
-      });
+    it('should call setNewScientist when there is a New Scientist article in storage', () => {
+      localStorage.setItem('favorites', JSON.stringify(['Four stars full of burnt nuclear ash']));
+      wrapper.instance().getFavoritesFromStorage();
+      expect(mockProps.setNewScientist).toHaveBeenCalled();
+    });
 
-      it('should return the ArticleContainer and Popup components when there is a NEW SCIENTIST currentArticle', () => {
-        const mockMatch = { params: { id: 'c' }, path: 'new-scientist/c' };
-        const result = wrapper.instance().getArticleRoute({ match: mockMatch });
-        expect(result).toHaveLength(2);
-      });
-
-      it('should return the ArticleContainer and Popup components when there is a CRYPTO COINS currentArticle', () => {
-        const mockMatch = { params: { id: 'e' }, path: 'crypto-coins/e' };
-        const result = wrapper.instance().getArticleRoute({ match: mockMatch });
-        expect(result).toHaveLength(2);
-      });
-
-      it('should return the Error404 component when there is no currentArticle match', () => {
-        const mockMatch = { params: { id: 'z' }, path: 'national-geographic/z' };
-        const result = wrapper.instance().getArticleRoute({ match: mockMatch });
-        const errorWrapper = shallow(result);
-        expect(errorWrapper.find('.Error404')).toHaveLength(1);
-      });
+    it('should call setCryptoCoins when there is a National Geographic article in storage', () => {
+      localStorage.setItem('favorites', JSON.stringify(['Ethereum Slayers']));
+      wrapper.instance().getFavoritesFromStorage();
+      expect(mockProps.setCryptoCoins).toHaveBeenCalled();
     });
   });
 

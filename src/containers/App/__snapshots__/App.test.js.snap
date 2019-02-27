@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App App component should match the snapshot 1`] = `
+exports[`App should match the snapshot 1`] = `
 <div
   className="App"
 >
@@ -51,7 +51,7 @@ exports[`App App component should match the snapshot 1`] = `
 </div>
 `;
 
-exports[`App App component should match the snapshot when isLoading is true 1`] = `
+exports[`App should match the snapshot when isLoading is true 1`] = `
 <div
   className="App"
 >
