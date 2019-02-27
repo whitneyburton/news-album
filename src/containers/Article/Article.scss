@@ -25,3 +25,11 @@
 .Article--image {
   width: 100%;
 }
+
+@media screen and (max-width: 450px) {
+  .Article {
+    .Article--title {
+      font-size: 1.3rem;
+    }
+  }
+}

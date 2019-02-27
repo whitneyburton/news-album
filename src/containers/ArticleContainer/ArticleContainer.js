@@ -54,7 +54,7 @@ export class ArticleContainer extends Component {
     const breakpoints = {
       default: 3,
       1500: 2,
-      850: 1
+      950: 1
     };
 
     return (

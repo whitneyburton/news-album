@@ -135,5 +135,6 @@ App.propTypes = {
   natGeoArticles: PropTypes.array,
   newScientistArticles: PropTypes.array,
   cryptoCoinsArticles: PropTypes.array,
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  error: PropTypes.string
 }

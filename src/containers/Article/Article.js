@@ -31,5 +31,6 @@ export class Article extends Component {
 }
 
 Article.propTypes = {
-  article: PropTypes.object
+  article: PropTypes.object,
+  match: PropTypes.object
 }

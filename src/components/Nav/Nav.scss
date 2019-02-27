@@ -15,5 +15,45 @@
     padding: 7px;
     border-radius: 12px;
     background-color: #4C3E3E;
+    transition: all 500ms ease;
+
+    &:hover {
+      background-color: #2d2525;
+      box-shadow: 3px 5px 14px #c7c7c7;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .Nav--nav-btn {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .Nav--NavLink-container {
+    flex-direction: column;
+    align-items: center;
+
+    .Nav--nav-btn {
+      width: 60%;
+      font-size: 16px;
+      margin: 5px 22px;
+      letter-spacing: 3px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .Nav--NavLink-container {
+    flex-direction: column;
+    align-items: center;
+
+    .Nav--nav-btn {
+      width: 100%;
+      font-size: 12px;
+      margin: 5px 22px;
+      letter-spacing: 3px;
+    }
   }
 }

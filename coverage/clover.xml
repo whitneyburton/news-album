@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1551240299685" clover="3.2.0">
-  <project timestamp="1551240299685" name="All files">
-    <metrics statements="204" coveredstatements="178" conditionals="87" coveredconditionals="69" methods="72" coveredmethods="59" elements="363" coveredelements="306" complexity="0" loc="204" ncloc="204" packages="13" files="20" classes="20">
+<coverage generated="1551246497185" clover="3.2.0">
+  <project timestamp="1551246497185" name="All files">
+    <metrics statements="204" coveredstatements="191" conditionals="87" coveredconditionals="74" methods="72" coveredmethods="63" elements="363" coveredelements="328" complexity="0" loc="204" ncloc="204" packages="13" files="20" classes="20">
       <package name="actions">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
         <file name="index.js" path="/Users/whitneyburton/Documents/turing/mod3/news-album/src/actions/index.js">
@@ -56,13 +56,13 @@
         </file>
       </package>
       <package name="containers.App">
-        <metrics statements="48" coveredstatements="28" conditionals="24" coveredconditionals="15" methods="23" coveredmethods="13"/>
+        <metrics statements="48" coveredstatements="41" conditionals="24" coveredconditionals="20" methods="23" coveredmethods="17"/>
         <file name="App.js" path="/Users/whitneyburton/Documents/turing/mod3/news-album/src/containers/App/App.js">
-          <metrics statements="48" coveredstatements="28" conditionals="24" coveredconditionals="15" methods="23" coveredmethods="13"/>
-          <line num="19" count="10" type="stmt"/>
-          <line num="20" count="10" type="stmt"/>
-          <line num="21" count="10" type="stmt"/>
-          <line num="22" count="10" type="stmt"/>
+          <metrics statements="48" coveredstatements="41" conditionals="24" coveredconditionals="20" methods="23" coveredmethods="17"/>
+          <line num="19" count="20" type="stmt"/>
+          <line num="20" count="20" type="stmt"/>
+          <line num="21" count="20" type="stmt"/>
+          <line num="22" count="20" type="stmt"/>
           <line num="26" count="4" type="stmt"/>
           <line num="27" count="4" type="stmt"/>
           <line num="28" count="4" type="stmt"/>
@@ -75,37 +75,37 @@
           <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="37" count="0" type="stmt"/>
           <line num="39" count="4" type="cond" truecount="2" falsecount="0"/>
-          <line num="46" count="10" type="stmt"/>
-          <line num="47" count="10" type="cond" truecount="2" falsecount="0"/>
-          <line num="48" count="10" type="stmt"/>
-          <line num="49" count="20" type="cond" truecount="1" falsecount="1"/>
-          <line num="50" count="0" type="stmt"/>
-          <line num="52" count="20" type="stmt"/>
-          <line num="54" count="10" type="stmt"/>
-          <line num="55" count="0" type="stmt"/>
-          <line num="56" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="57" count="0" type="stmt"/>
-          <line num="59" count="0" type="stmt"/>
-          <line num="61" count="0" type="stmt"/>
-          <line num="62" count="0" type="stmt"/>
-          <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="64" count="0" type="stmt"/>
-          <line num="66" count="0" type="stmt"/>
-          <line num="68" count="0" type="stmt"/>
-          <line num="72" count="9" type="stmt"/>
-          <line num="73" count="9" type="stmt"/>
+          <line num="46" count="23" type="stmt"/>
+          <line num="47" count="23" type="cond" truecount="2" falsecount="0"/>
+          <line num="48" count="23" type="stmt"/>
+          <line num="49" count="46" type="cond" truecount="2" falsecount="0"/>
+          <line num="50" count="2" type="stmt"/>
+          <line num="52" count="46" type="stmt"/>
+          <line num="54" count="23" type="stmt"/>
+          <line num="55" count="23" type="stmt"/>
+          <line num="56" count="46" type="cond" truecount="2" falsecount="0"/>
+          <line num="57" count="2" type="stmt"/>
+          <line num="59" count="46" type="stmt"/>
+          <line num="61" count="23" type="stmt"/>
+          <line num="62" count="23" type="stmt"/>
+          <line num="63" count="46" type="cond" truecount="2" falsecount="0"/>
+          <line num="64" count="7" type="stmt"/>
+          <line num="66" count="46" type="stmt"/>
+          <line num="68" count="23" type="stmt"/>
+          <line num="72" count="19" type="stmt"/>
+          <line num="73" count="19" type="stmt"/>
           <line num="94" count="0" type="stmt"/>
           <line num="97" count="0" type="stmt"/>
           <line num="100" count="0" type="stmt"/>
           <line num="103" count="0" type="stmt"/>
           <line num="112" count="1" type="stmt"/>
-          <line num="120" count="3" type="stmt"/>
+          <line num="120" count="5" type="stmt"/>
           <line num="121" count="1" type="stmt"/>
           <line num="122" count="1" type="stmt"/>
           <line num="123" count="1" type="stmt"/>
           <line num="124" count="0" type="stmt"/>
-          <line num="125" count="0" type="stmt"/>
-          <line num="126" count="0" type="stmt"/>
+          <line num="125" count="1" type="stmt"/>
+          <line num="126" count="1" type="stmt"/>
           <line num="131" count="1" type="stmt"/>
         </file>
       </package>

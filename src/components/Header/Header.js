@@ -6,14 +6,14 @@ export const Header = () => {
 
   return (
     <Fragment>
-      <h1>news<span>album</span></h1>
+      <h1 className='Header--title'>news<span>album</span></h1>
       <div className='Header--quote-and-favorites'>
-        <div>
+        <div className='Header--quote'>
           <h2 className='Header--learn'>LEARN +</h2>
           <h2 className='Header--get-inspired'>GET INSPIRED.</h2>
         </div>
         <Link to='/favorites' className='Header--Link'>
-          <h3>my<span>favorites</span>{favoritesNum.length}</h3>
+          <h3 className='Header--favorites'>my<span>favorites</span>{favoritesNum.length}</h3>
         </Link>
       </div>
     </Fragment>
