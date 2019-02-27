@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export class Article extends Component {
-
   getPath = () => {
-    const { article } = this.props;
-    if (article.url.includes('nationalgeographic')) {
+    const { article, match } = this.props;
+    if (match.path.includes('favorites')) {
+      return '/favorites/'
+    } else if (article.url.includes('nationalgeographic')) {
       return '/national-geographic/'
     } else if (article.url.includes('ccn')) {
       return '/crypto-coins/'
@@ -14,7 +15,7 @@ export class Article extends Component {
       return '/new-scientist/'
     }
   }
-
+  
   render() {
     const { article } = this.props;
     const title = article.title.toUpperCase();

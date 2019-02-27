@@ -24,6 +24,7 @@ export class App extends Component {
 
   getArticleRoute = ({ match }) => {
     const { natGeoArticles, cryptoCoinsArticles, newScientistArticles } = this.props;
+    const allArticles = [...natGeoArticles, ...cryptoCoinsArticles, ...newScientistArticles];
     const { id } = match.params;
     let currentArticle;
     if (match.path.includes('national')) {
@@ -32,6 +33,8 @@ export class App extends Component {
       currentArticle = cryptoCoinsArticles.find(article => article.id === id);
     } else if (match.path.includes('scientist')) {
       currentArticle = newScientistArticles.find(article => article.id === id);
+    } else if (match.path.includes('favorites')) {
+      currentArticle = allArticles.find(article => article.id === id);
     }
     return currentArticle ? ([
       <ArticleContainer match={match} isDisabled={true} />,
@@ -62,7 +65,7 @@ export class App extends Component {
       }
       return article;
     })
-    this.props.setNewScientist(updatedCryptoCoins);
+    this.props.setCryptoCoins(updatedCryptoCoins);
   }
 
   render() {
@@ -83,6 +86,9 @@ export class App extends Component {
             path='/new-scientist/:id'
             render={this.getArticleRoute} />
           <Route
+            path='/favorites/:id'
+            render={this.getArticleRoute} />
+          <Route
             path='/national-geographic'
             render={({ match }) => <ArticleContainer match={match} />} />
           <Route
@@ -91,9 +97,9 @@ export class App extends Component {
           <Route
             path='/crypto-coins'
             render={({ match }) => <ArticleContainer match={match} />} />
-          {/* <Route
+          <Route
             path='/favorites'
-            render={({ match }) => <ArticleContainer match={match} />} /> */}
+            render={({ match }) => <ArticleContainer match={match} />} />
           <Route exact path='/' component={Home} />
           <Route component={Error404} />
         </Switch>}

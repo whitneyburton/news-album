@@ -12,19 +12,20 @@ export class ArticleContainer extends Component {
       case '/national-geographic':
       case '/national-geographic/:id':
         return natGeoArticles.map(article => {
-          return <Article key={article.id} article={article} />
+          return <Article key={article.id} article={article} match={match} />
         });
       case '/crypto-coins':
       case '/crypto-coins/:id':
         return cryptoCoinsArticles.map(article => {
-          return <Article key={article.id} article={article} />
+          return <Article key={article.id} article={article} match={match} />
         });
       case '/new-scientist':
       case '/new-scientist/:id':
         return newScientistArticles.map(article => {
-          return <Article key={article.id} article={article} />
+          return <Article key={article.id} article={article} match={match} />
         });
       case '/favorites':
+      case '/favorites/:id':
         const allArticles = [...natGeoArticles, ...cryptoCoinsArticles, ...newScientistArticles];
         const favoriteTitles = JSON.parse(localStorage.getItem('favorites')) || [];
         const favoriteArticles = allArticles.reduce((acc, article) => {
@@ -34,10 +35,9 @@ export class ArticleContainer extends Component {
             }
           })
           return acc;
-        }, [])
-        console.log(favoriteArticles)
+        }, []);
         return favoriteArticles.map(article => {
-          return <Article key={article.id} article={article} />
+          return <Article key={article.id} article={article} match={match} />
         });
       default:
         return;
