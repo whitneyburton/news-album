@@ -35,6 +35,10 @@ To run testing suite:
 #### Original Assignment
 [Binary Challenge](http://frontend.turing.io/projects/binary-challenge.html) from Turing School of Software & Design.
 
+### Issues 
+Tracked with [Waffle.io](https://waffle.io/whitneyburton/news-album) : 
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/whitneyburton/news-album.svg?columns=all)](https://waffle.io/whitneyburton/news-album)
+
 #### Contributors 
 [Whitney Burton](https://github.com/whitneyburton)  
 
