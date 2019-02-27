@@ -5,7 +5,6 @@ import { Article } from '../Article/Article';
 import Masonry from 'react-masonry-css';
 
 export class ArticleContainer extends Component {
-
   generateArticleCategory = () => {
     const { match, natGeoArticles, cryptoCoinsArticles, newScientistArticles } = this.props;
     switch (match.path) {
@@ -27,27 +26,31 @@ export class ArticleContainer extends Component {
       case '/favorites':
       case '/favorites/:id':
         const allArticles = [...natGeoArticles, ...cryptoCoinsArticles, ...newScientistArticles];
-        const favoriteTitles = JSON.parse(localStorage.getItem('favorites')) || [];
-        const favoriteArticles = allArticles.reduce((acc, article) => {
-          favoriteTitles.forEach(title => {
-            if (article.title === title) {
-              acc.push(article);
-            }
-          })
-          return acc;
-        }, []);
-        return favoriteArticles.map(article => {
-          return <Article key={article.id} article={article} match={match} />
-        });
+        return this.generateFavoriteArticles(allArticles, match);
       default:
         return;
     }
   }
 
+  generateFavoriteArticles = (allArticles, match) => {
+    const favoriteTitles = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favoriteArticles = allArticles.reduce((acc, article) => {
+      favoriteTitles.forEach(title => {
+        if (article.title === title) {
+          acc.push(article);
+        }
+      })
+      return acc;
+    }, []);
+    return favoriteArticles.map(article => {
+      return <Article key={article.id} article={article} match={match} />
+    });
+  }
+
   render() {
+    const articles = this.generateArticleCategory();
     const { isDisabled } = this.props;
     const disabledClass = isDisabled ? '--disabled' : '';
-
     const breakpoints = {
       default: 3,
       1500: 2,
@@ -55,13 +58,16 @@ export class ArticleContainer extends Component {
     };
 
     return (
-      <Masonry
-        breakpointCols={breakpoints}
-        className={'ArticleContainer' + disabledClass}
-        columnClassName='columns'>
-        {this.generateArticleCategory()}
-      </Masonry>
-    )
+      articles.length ? (
+        <Masonry
+          breakpointCols={breakpoints}
+          className={'ArticleContainer' + disabledClass}
+          columnClassName='columns'>
+          {articles}
+        </Masonry>
+      ) : (
+          <h1 className='ArticleContainer--no-faves'>No favorites yet!</h1>
+        ));
   }
 }
 
@@ -77,5 +83,6 @@ ArticleContainer.propTypes = {
   match: PropTypes.object,
   natGeoArticles: PropTypes.array,
   newScientistArticles: PropTypes.array,
-  cryptoCoinsArticles: PropTypes.array
+  cryptoCoinsArticles: PropTypes.array,
+  isDisabled: PropTypes.bool
 }
