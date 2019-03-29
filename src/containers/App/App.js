@@ -16,9 +16,10 @@ import { setNatGeo, setNewScientist, setCryptoCoins } from '../../actions';
 
 export class App extends Component {
   componentDidMount = async () => {
-    await this.props.fetchNatGeo();
-    await this.props.fetchCryptoCoins();
-    await this.props.fetchNewScientist();
+    const {fetchNatGeo, fetchCryptoCoins, fetchNewScientist} = this.props;
+    await fetchNatGeo();
+    await fetchCryptoCoins();
+    await fetchNewScientist();
     this.getFavoritesFromStorage()
   }
 
@@ -26,16 +27,7 @@ export class App extends Component {
     const { natGeoArticles, cryptoCoinsArticles, newScientistArticles } = this.props;
     const allArticles = [...natGeoArticles, ...cryptoCoinsArticles, ...newScientistArticles];
     const { id } = match.params;
-    let currentArticle;
-    if (match.path.includes('national')) {
-      currentArticle = natGeoArticles.find(article => article.id === id);
-    } else if (match.path.includes('crypto')) {
-      currentArticle = cryptoCoinsArticles.find(article => article.id === id);
-    } else if (match.path.includes('scientist')) {
-      currentArticle = newScientistArticles.find(article => article.id === id);
-    } else if (match.path.includes('favorites')) {
-      currentArticle = allArticles.find(article => article.id === id);
-    }
+    let currentArticle = allArticles.find(article => article.id === id);
     return currentArticle ? ([
       <ArticleContainer match={match} isDisabled={true} />,
       <Popup currentArticle={currentArticle} match={match} />]) :
@@ -43,7 +35,14 @@ export class App extends Component {
   }
 
   getFavoritesFromStorage = () => {
-    const { natGeoArticles, newScientistArticles, cryptoCoinsArticles } = this.props;
+    const {
+      natGeoArticles,
+      newScientistArticles,
+      cryptoCoinsArticles,
+      setNatGeo,
+      setCryptoCoins,
+      setNewScientist
+    } = this.props;
     const parsedStorage = JSON.parse(localStorage.getItem('favorites')) || [];
     const updatedNatGeo = natGeoArticles.map(article => {
       if (parsedStorage.includes(article.title)) {
@@ -51,21 +50,21 @@ export class App extends Component {
       }
       return article;
     })
-    this.props.setNatGeo(updatedNatGeo);
+    setNatGeo(updatedNatGeo);
     const updatedNewScientist = newScientistArticles.map(article => {
       if (parsedStorage.includes(article.title)) {
         article.isFavorite = true;
       }
       return article;
     })
-    this.props.setNewScientist(updatedNewScientist);
+    setNewScientist(updatedNewScientist);
     const updatedCryptoCoins = cryptoCoinsArticles.map(article => {
       if (parsedStorage.includes(article.title)) {
         article.isFavorite = true;
       }
       return article;
     })
-    this.props.setCryptoCoins(updatedCryptoCoins);
+    setCryptoCoins(updatedCryptoCoins);
   }
 
   render() {
@@ -77,30 +76,14 @@ export class App extends Component {
         {error && <Error404 />}
         {!error && isLoading && <Loader />}
         {!isLoading && <Switch>
-          <Route
-            path='/crypto-coins/:id'
-            render={this.getArticleRoute} />
-          <Route
-            path='/national-geographic/:id'
-            render={this.getArticleRoute} />
-          <Route
-            path='/new-scientist/:id'
-            render={this.getArticleRoute} />
-          <Route
-            path='/favorites/:id'
-            render={this.getArticleRoute} />
-          <Route
-            path='/national-geographic'
-            render={({ match }) => <ArticleContainer match={match} />} />
-          <Route
-            path='/new-scientist'
-            render={({ match }) => <ArticleContainer match={match} />} />
-          <Route
-            path='/crypto-coins'
-            render={({ match }) => <ArticleContainer match={match} />} />
-          <Route
-            path='/favorites'
-            render={({ match }) => <ArticleContainer match={match} />} />
+          <Route path='/crypto-coins/:id' render={this.getArticleRoute} />
+          <Route path='/national-geographic/:id' render={this.getArticleRoute} />
+          <Route path='/new-scientist/:id' render={this.getArticleRoute} />
+          <Route path='/favorites/:id' render={this.getArticleRoute} />
+          <Route path='/national-geographic' component={ArticleContainer} />
+          <Route path='/new-scientist' component={ArticleContainer} />
+          <Route path='/crypto-coins' component={ArticleContainer} />
+          <Route path='/favorites' component={ArticleContainer} />
           <Route exact path='/' component={Home} />
           <Route component={Error404} />
         </Switch>}

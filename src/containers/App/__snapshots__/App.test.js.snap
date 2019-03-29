@@ -24,20 +24,20 @@ exports[`App should match the snapshot 1`] = `
       render={[Function]}
     />
     <Route
+      component={[Function]}
       path="/national-geographic"
-      render={[Function]}
     />
     <Route
+      component={[Function]}
       path="/new-scientist"
-      render={[Function]}
     />
     <Route
+      component={[Function]}
       path="/crypto-coins"
-      render={[Function]}
     />
     <Route
+      component={[Function]}
       path="/favorites"
-      render={[Function]}
     />
     <Route
       component={[Function]}

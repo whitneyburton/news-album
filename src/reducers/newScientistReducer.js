@@ -5,7 +5,7 @@ export const newScientistReducer = (state = [], action) => {
     case 'SET_FAVORITES':
       return state.map(article => {
         if (article.id === action.article.id) {
-          article.isFavorite = !article.isFavorite
+          return {...article, isFavorite: !article.isFavorite}
         }
         return article;
       });
