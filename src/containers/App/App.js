@@ -7,19 +7,12 @@ import { Loader } from '../../components/Loader/Loader';
 import Popup from '../Popup/Popup';
 import { Home } from '../../components/Home/Home';
 import { Header } from '../../components/Header/Header';
-import { Nav } from '../../components/Nav/Nav';
+import Nav from '../../components/Nav/Nav';
 import { Error404 } from '../../components/Error404/Error404';
-import { fetchCryptoCoins } from '../../thunks/fetchCryptoCoins';
-import { fetchNatGeo } from '../../thunks/fetchNatGeo';
-import { fetchNewScientist } from '../../thunks/fetchNewScientist';
 import { setNatGeo, setNewScientist, setCryptoCoins } from '../../actions';
 
 export class App extends Component {
   componentDidMount = async () => {
-    const { fetchNatGeo, fetchCryptoCoins, fetchNewScientist } = this.props;
-    await fetchNatGeo();
-    await fetchCryptoCoins();
-    await fetchNewScientist();
     this.getFavoritesFromStorage();
   };
 
@@ -34,8 +27,9 @@ export class App extends Component {
       ...cryptoCoinsArticles,
       ...newScientistArticles
     ];
-    const { id } = match.params;
-    let currentArticle = allArticles.find(article => article.id === id);
+    let currentArticle = allArticles.find(
+      article => article.id === match.params.id
+    );
     return currentArticle ? (
       [
         <ArticleContainer match={match} isDisabled={true} />,
@@ -74,11 +68,12 @@ export class App extends Component {
   };
 
   render() {
-    const { isLoading, error } = this.props;
+    const { isLoading, error, history } = this.props;
+
     return (
       <div className="App">
         <Header />
-        <Nav />
+        <Nav history={history} />
         {error && <Error404 />}
         {!error && isLoading && <Loader />}
         {!isLoading && (
@@ -98,9 +93,14 @@ export class App extends Component {
             <Route component={Error404} />
           </Switch>
         )}
-        <p className="attribution">
+        <p className="App--attribution">
           Powered by{' '}
-          <a className="attribution-link" href="https://newsapi.org/">
+          <a
+            className="App--attribution-link"
+            href="https://newsapi.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             News API
           </a>
         </p>
@@ -118,9 +118,6 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  fetchNatGeo: () => dispatch(fetchNatGeo()),
-  fetchNewScientist: () => dispatch(fetchNewScientist()),
-  fetchCryptoCoins: () => dispatch(fetchCryptoCoins()),
   setNatGeo: articles => dispatch(setNatGeo(articles)),
   setNewScientist: articles => dispatch(setNewScientist(articles)),
   setCryptoCoins: articles => dispatch(setCryptoCoins(articles))
