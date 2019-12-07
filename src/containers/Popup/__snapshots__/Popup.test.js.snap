@@ -38,6 +38,7 @@ exports[`Popup should match the snapshot 1`] = `
       <p
         className="Popup--author-pub"
       >
+        By: 
         Douglas Main
         , 
         Mon Feb 18 2019
@@ -45,6 +46,7 @@ exports[`Popup should match the snapshot 1`] = `
       <p
         className="Popup--description"
       >
+        Glimpse: 
         Sad insects.
       </p>
     </div>

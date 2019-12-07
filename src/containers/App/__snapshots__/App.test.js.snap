@@ -48,9 +48,13 @@ exports[`App should match the snapshot 1`] = `
       component={[Function]}
     />
   </Switch>
-  <p>
-    Powered by 
+  <p
+    className="attribution"
+  >
+    Powered by
+     
     <a
+      className="attribution-link"
       href="https://newsapi.org/"
     >
       News API
@@ -66,9 +70,13 @@ exports[`App should match the snapshot when isLoading is true 1`] = `
   <Header />
   <Nav />
   <Loader />
-  <p>
-    Powered by 
+  <p
+    className="attribution"
+  >
+    Powered by
+     
     <a
+      className="attribution-link"
       href="https://newsapi.org/"
     >
       News API
