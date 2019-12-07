@@ -22,8 +22,9 @@ export const Nav = () => {
         The New Scientist
       </NavLink>
       <NavLink
+        onClick={e => e.preventDefault()}
         to="/crypto-coins"
-        className="Nav--nav-btn"
+        className="Nav--nav-btn disabled"
         activeClassName="active"
       >
         Crypto Coins News
