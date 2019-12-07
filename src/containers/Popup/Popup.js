@@ -12,8 +12,8 @@ export class Popup extends Component {
   constructor() {
     super();
     this.state = {
-      copied: false,
-    }
+      copied: false
+    };
   }
 
   handleClick = () => {
@@ -26,10 +26,10 @@ export class Popup extends Component {
     } else if (parsedStorage.includes(title)) {
       const removedItemStorage = parsedStorage.filter(item => item !== title);
       localStorage.setItem('favorites', JSON.stringify(removedItemStorage));
-    } 
-  }
+    }
+  };
 
-  toggleCopied = () => this.state.copied ? 'COPIED!' : 'COPY';
+  toggleCopied = () => (this.state.copied ? 'COPIED!' : 'COPY');
 
   render() {
     const { currentArticle: article, match } = this.props;
@@ -39,40 +39,48 @@ export class Popup extends Component {
     const icon = article.isFavorite ? favstaricon : staricon;
 
     return (
-      <div className='Popup'>
-        <div className='Popup--delete-fav'>
+      <div className="Popup">
+        <div className="Popup--delete-fav">
           <Link to={previousUrl}>
-            <img src={closeicon} className='Popup--close' alt='close icon' />
+            <img src={closeicon} className="Popup--close" alt="close icon" />
           </Link>
-          <img src={icon} onClick={this.handleClick} className='Popup--star' alt='star icon' />
+          <img
+            src={icon}
+            onClick={this.handleClick}
+            className="Popup--star"
+            alt="star icon"
+          />
         </div>
-        <div className='Popup--info'>
-          <div className='Popup--facts'>
-            <h4 className='Popup--title'>{article.title.toUpperCase()}</h4>
-            <p className='Popup--author-pub'>{article.author}, {publishedDate}</p>
-            <p className='Popup--description'>{article.description}</p>
+        <div className="Popup--info">
+          <div className="Popup--facts">
+            <h4 className="Popup--title">{article.title.toUpperCase()}</h4>
+            <p className="Popup--author-pub">
+              {article.author}, {publishedDate}
+            </p>
+            <p className="Popup--description">{article.description}</p>
           </div>
-          <div className='Popup--buttons'>
-            <a href={article.url} target='_blank' rel='noopener noreferrer'>
+          <div className="Popup--buttons">
+            <a href={article.url} target="_blank" rel="noopener noreferrer">
               <button>READ</button>
             </a>
             <CopyToClipboard
-              className='CopyToClipboard--button'
+              className="CopyToClipboard--button"
               text={article.url}
-              onCopy={() => this.setState({ copied: true })}>
+              onCopy={() => this.setState({ copied: true })}
+            >
               <button>{copied}</button>
             </CopyToClipboard>
           </div>
         </div>
-        <img className='Popup--image' alt='article' src={article.urlToImage} />
+        <img className="Popup--image" alt="article" src={article.urlToImage} />
       </div>
-    )
+    );
   }
 }
 
-export const mapDispatchToProps = (dispatch) => ({
-  setFavorites: (article) => dispatch(setFavorites(article))
-})
+export const mapDispatchToProps = dispatch => ({
+  setFavorites: article => dispatch(setFavorites(article))
+});
 
 export default connect(null, mapDispatchToProps)(Popup);
 
@@ -80,4 +88,4 @@ Popup.propTypes = {
   currentArticle: PropTypes.object,
   match: PropTypes.object,
   setFavorites: PropTypes.func
-}
+};

@@ -5,11 +5,11 @@ export const cryptoCoinsReducer = (state = [], action) => {
     case 'SET_FAVORITES':
       return state.map(article => {
         if (article.id === action.article.id) {
-          return {...article, isFavorite: !article.isFavorite}
+          return { ...article, isFavorite: !article.isFavorite };
         }
         return article;
       });
     default:
       return state;
   }
-}
+};

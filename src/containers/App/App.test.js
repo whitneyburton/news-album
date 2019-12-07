@@ -33,15 +33,22 @@ jest.mock('../../thunks/fetchNewScientist.js');
 
 describe('App', () => {
   let wrapper;
-  
+
   beforeEach(() => {
-    wrapper = shallow(<App {...mockProps} match={mockMatch} />)
+    wrapper = shallow(<App {...mockProps} match={mockMatch} />);
   });
 
   it('renders without crashing', () => {
     const div = document.createElement('div');
     const store = createStore(rootReducer);
-    ReactDOM.render(<Provider store={store}><BrowserRouter><App {...mockProps} /></BrowserRouter></Provider>, div);
+    ReactDOM.render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <App {...mockProps} />
+        </BrowserRouter>
+      </Provider>,
+      div
+    );
     ReactDOM.unmountComponentAtNode(div);
   });
 
@@ -50,7 +57,7 @@ describe('App', () => {
   });
 
   it('should match the snapshot when isLoading is true', () => {
-    wrapper = shallow(<App {...mockProps} isLoading={true} />)
+    wrapper = shallow(<App {...mockProps} isLoading={true} />);
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -87,16 +94,21 @@ describe('App', () => {
     });
   });
 
-
   describe('getFavoritesFromStorage', () => {
     it('should call setNatGeo when there is a national geographic article in storage', () => {
-      localStorage.setItem('favorites', JSON.stringify(['Why insect populations are plummeting']));
+      localStorage.setItem(
+        'favorites',
+        JSON.stringify(['Why insect populations are plummeting'])
+      );
       wrapper.instance().getFavoritesFromStorage();
       expect(mockProps.setNatGeo).toHaveBeenCalled();
     });
 
     it('should call setNewScientist when there is a New Scientist article in storage', () => {
-      localStorage.setItem('favorites', JSON.stringify(['Four stars full of burnt nuclear ash']));
+      localStorage.setItem(
+        'favorites',
+        JSON.stringify(['Four stars full of burnt nuclear ash'])
+      );
       wrapper.instance().getFavoritesFromStorage();
       expect(mockProps.setNewScientist).toHaveBeenCalled();
     });
@@ -148,7 +160,9 @@ describe('App', () => {
 
     it('should call dispatch with a setNewScientist action', () => {
       const mockDispatch = jest.fn();
-      const actionToDispatch = actions.setNewScientist(data.mockNewScienceArticles);
+      const actionToDispatch = actions.setNewScientist(
+        data.mockNewScienceArticles
+      );
       const mappedProps = mapDispatchToProps(mockDispatch);
       mappedProps.setNewScientist(data.mockNewScienceArticles);
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
@@ -156,7 +170,9 @@ describe('App', () => {
 
     it('should call dispatch with a setCryptoCoins action', () => {
       const mockDispatch = jest.fn();
-      const actionToDispatch = actions.setCryptoCoins(data.mockCryptoCoinsArticles);
+      const actionToDispatch = actions.setCryptoCoins(
+        data.mockCryptoCoinsArticles
+      );
       const mappedProps = mapDispatchToProps(mockDispatch);
       mappedProps.setCryptoCoins(data.mockCryptoCoinsArticles);
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);

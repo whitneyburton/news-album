@@ -10,7 +10,10 @@ describe('errorReducer', () => {
 
   it('should return an error message', () => {
     const expected = 'Articles not found.';
-    const result = errorReducer(undefined, actions.setError('Articles not found.'));
+    const result = errorReducer(
+      undefined,
+      actions.setError('Articles not found.')
+    );
     expect(result).toEqual(expected);
   });
 });

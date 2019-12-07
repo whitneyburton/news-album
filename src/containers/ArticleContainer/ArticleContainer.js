@@ -6,31 +6,40 @@ import Masonry from 'react-masonry-css';
 
 export class ArticleContainer extends Component {
   generateArticleCategory = () => {
-    const { match, natGeoArticles, cryptoCoinsArticles, newScientistArticles } = this.props;
+    const {
+      match,
+      natGeoArticles,
+      cryptoCoinsArticles,
+      newScientistArticles
+    } = this.props;
     switch (match.path) {
       case '/national-geographic':
       case '/national-geographic/:id':
         return natGeoArticles.map(article => {
-          return <Article key={article.id} article={article} match={match} />
+          return <Article key={article.id} article={article} match={match} />;
         });
       case '/crypto-coins':
       case '/crypto-coins/:id':
         return cryptoCoinsArticles.map(article => {
-          return <Article key={article.id} article={article} match={match} />
+          return <Article key={article.id} article={article} match={match} />;
         });
       case '/new-scientist':
       case '/new-scientist/:id':
         return newScientistArticles.map(article => {
-          return <Article key={article.id} article={article} match={match} />
+          return <Article key={article.id} article={article} match={match} />;
         });
       case '/favorites':
       case '/favorites/:id':
-        const allArticles = [...natGeoArticles, ...cryptoCoinsArticles, ...newScientistArticles];
+        const allArticles = [
+          ...natGeoArticles,
+          ...cryptoCoinsArticles,
+          ...newScientistArticles
+        ];
         return this.generateFavoriteArticles(allArticles, match);
       default:
         return;
     }
-  }
+  };
 
   generateFavoriteArticles = (allArticles, match) => {
     const favoriteTitles = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -39,13 +48,13 @@ export class ArticleContainer extends Component {
         if (article.title === title) {
           acc.push(article);
         }
-      })
+      });
       return acc;
     }, []);
     return favoriteArticles.map(article => {
-      return <Article key={article.id} article={article} match={match} />
+      return <Article key={article.id} article={article} match={match} />;
     });
-  }
+  };
 
   render() {
     const articles = this.generateArticleCategory();
@@ -57,25 +66,25 @@ export class ArticleContainer extends Component {
       950: 1
     };
 
-    return (
-      articles.length ? (
-        <Masonry
-          breakpointCols={breakpoints}
-          className={'ArticleContainer' + disabledClass}
-          columnClassName='columns'>
-          {articles}
-        </Masonry>
-      ) : (
-          <h1 className='ArticleContainer--no-faves'>No favorites yet!</h1>
-        ));
+    return articles.length ? (
+      <Masonry
+        breakpointCols={breakpoints}
+        className={'ArticleContainer' + disabledClass}
+        columnClassName="columns"
+      >
+        {articles}
+      </Masonry>
+    ) : (
+      <h1 className="ArticleContainer--no-faves">No favorites yet!</h1>
+    );
   }
 }
 
-export const mapStateToProps = (state) => ({
+export const mapStateToProps = state => ({
   natGeoArticles: state.natGeoArticles,
   newScientistArticles: state.newScientistArticles,
   cryptoCoinsArticles: state.cryptoCoinsArticles
-})
+});
 
 export default connect(mapStateToProps)(ArticleContainer);
 
@@ -85,4 +94,4 @@ ArticleContainer.propTypes = {
   newScientistArticles: PropTypes.array,
   cryptoCoinsArticles: PropTypes.array,
   isDisabled: PropTypes.bool
-}
+};

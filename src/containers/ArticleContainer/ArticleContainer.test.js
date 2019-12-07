@@ -29,22 +29,22 @@ describe('ArticleContainer', () => {
     });
 
     it('should return an array of Article components when there is a CRYPTO COINS path', () => {
-      const mockMatch = { path: '/national-geographic' }
-      wrapper = shallow(<ArticleContainer {...mockProps} match={mockMatch}/>)
+      const mockMatch = { path: '/national-geographic' };
+      wrapper = shallow(<ArticleContainer {...mockProps} match={mockMatch} />);
       const result = wrapper.instance().generateArticleCategory();
       expect(result).toHaveLength(2);
     });
 
     it('should return an array of Article components when there is a NEW SCIENTIST path', () => {
-      const mockMatch = { path: '/new-scientist' }
-      wrapper = shallow(<ArticleContainer {...mockProps} match={mockMatch}/>)
+      const mockMatch = { path: '/new-scientist' };
+      wrapper = shallow(<ArticleContainer {...mockProps} match={mockMatch} />);
       const result = wrapper.instance().generateArticleCategory();
       expect(result).toHaveLength(2);
     });
 
     it('should return an array of Article components when there is a FAVORITES path', () => {
-      const mockMatch = { path: '/favorites' }
-      wrapper = shallow(<ArticleContainer {...mockProps} match={mockMatch}/>)
+      const mockMatch = { path: '/favorites' };
+      wrapper = shallow(<ArticleContainer {...mockProps} match={mockMatch} />);
       const result = wrapper.instance().generateArticleCategory();
       expect(result).toHaveLength(0);
     });

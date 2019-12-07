@@ -5,10 +5,12 @@ describe('api', () => {
   const mockUrl = 'www.fetchdata.com';
 
   beforeEach(() => {
-    window.fetch = jest.fn(() => Promise.resolve({
-      json: data.mockNewScienceArticlesObj,
-      ok: true
-    }));
+    window.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: data.mockNewScienceArticlesObj,
+        ok: true
+      })
+    );
   });
 
   it('should call fetch with the correct params', async () => {
@@ -23,10 +25,12 @@ describe('api', () => {
   });
 
   it('should throw an error if everything is not ok', async () => {
-    window.fetch = jest.fn(() => Promise.resolve({
-      json: jest.fn(() => Promise.resolve('Error fetching data.')),
-      ok: false
-    }));
+    window.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: jest.fn(() => Promise.resolve('Error fetching data.')),
+        ok: false
+      })
+    );
     const expected = new Error('Error fetching data.');
     expect(fetchData(mockUrl)).rejects.toEqual(expected);
   });

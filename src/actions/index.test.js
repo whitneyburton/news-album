@@ -45,7 +45,7 @@ describe('actions', () => {
       expect(result).toEqual(expected);
     });
   });
-  
+
   describe('setError', () => {
     it('should return an object with a SET_ERROR type and bool', () => {
       const expected = {

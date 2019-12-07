@@ -1,11 +1,11 @@
-import { configure } from 'enzyme'; 
+import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-configure({ adapter: new Adapter() }); 
+configure({ adapter: new Adapter() });
 
 class LocalStorage {
   constructor() {
-    this.store = {}
+    this.store = {};
   }
 
   getItem(key) {
@@ -17,15 +17,15 @@ class LocalStorage {
   }
 
   clear() {
-    this.store = {}
+    this.store = {};
   }
 
   removeItem(key) {
-    delete this.store[key]
+    delete this.store[key];
   }
 
   hasOwnProperty(key) {
-    if(this.store[key]) {
+    if (this.store[key]) {
       return true;
     } else {
       return false;
@@ -33,4 +33,4 @@ class LocalStorage {
   }
 }
 
-global.localStorage = new LocalStorage;
+global.localStorage = new LocalStorage();

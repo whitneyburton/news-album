@@ -12,8 +12,13 @@ describe('Popup', () => {
   let wrapper;
 
   beforeEach(() => {
-    localStorage.setItem('favorites', JSON.stringify(['Why insect populations are plummeting']));
-    wrapper = shallow(<Popup {...mockProps} match={mockMatch} setFavorites={mockSetFavorites} />);
+    localStorage.setItem(
+      'favorites',
+      JSON.stringify(['Why insect populations are plummeting'])
+    );
+    wrapper = shallow(
+      <Popup {...mockProps} match={mockMatch} setFavorites={mockSetFavorites} />
+    );
   });
 
   afterEach(() => {

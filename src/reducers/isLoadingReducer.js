@@ -5,4 +5,4 @@ export const isLoadingReducer = (state = false, action) => {
     default:
       return state;
   }
-}
+};
