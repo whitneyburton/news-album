@@ -35,13 +35,13 @@ export const ArticleContainer = ({
           ...cryptoCoinsArticles,
           ...newScientistArticles
         ];
-        return generateFavoriteArticles(allArticles, match);
+        return generateFavoriteArticles(allArticles);
       default:
         return;
     }
   };
 
-  const generateFavoriteArticles = (allArticles, match) => {
+  const generateFavoriteArticles = allArticles => {
     const favoriteTitles = JSON.parse(localStorage.getItem('favorites')) || [];
     const favoriteArticles = allArticles.reduce((acc, article) => {
       favoriteTitles.forEach(title => {
@@ -54,6 +54,18 @@ export const ArticleContainer = ({
     ));
   };
 
+  const getTitle = () => {
+    if (match.path.includes('geographic')) {
+      return 'NATIONAL GEOGRAPHIC';
+    } else if (match.path.includes('scientist')) {
+      return 'THE NEW SCIENTIST';
+    } else if (match.path.includes('crypto')) {
+      return 'CRYPTO COINS';
+    } else {
+      return 'YOUR FAVORITES';
+    }
+  };
+
   const articles = generateArticleCategory();
   const disabledClass = isDisabled ? '--disabled' : '';
   const breakpoints = {
@@ -63,13 +75,16 @@ export const ArticleContainer = ({
   };
 
   return articles.length ? (
-    <Masonry
-      breakpointCols={breakpoints}
-      className={'ArticleContainer' + disabledClass}
-      columnClassName="columns"
-    >
-      {articles}
-    </Masonry>
+    <>
+      <h2 className="ArticleContainer--title">{getTitle()}</h2>
+      <Masonry
+        breakpointCols={breakpoints}
+        className={'ArticleContainer' + disabledClass}
+        columnClassName="columns"
+      >
+        {articles}
+      </Masonry>
+    </>
   ) : (
     <h1 className="ArticleContainer--no-faves">No favorites yet!</h1>
   );
