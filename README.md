@@ -1,8 +1,6 @@
 # newsalbum :newspaper:
 
----
-
-newsalbum is an app designed for millenials to have a quick glance at the top ten latest articles of popular news sources in the STEM industry including National Geographic, The New Scientist, and Google News.
+newsalbum is an app designed for millenials to have a quick glance at the top ten latest articles of popular news sources in the STEM industry including National Geographic, The New Scientist, and Crypto Coins News.
 
 Users are able to:
 
