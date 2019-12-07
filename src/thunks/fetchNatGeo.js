@@ -1,11 +1,10 @@
 import { setNatGeo, setError, toggleLoading } from '../actions';
 import { fetchData } from '../utils/api';
-import { apiKey } from '../utils/api-key';
 import shortid from 'shortid';
 
 export const fetchNatGeo = () => {
-  return async (dispatch) => {
-    const url = `https://newsapi.org/v2/top-headlines?sources=national-geographic&apiKey=${apiKey}`;
+  return async dispatch => {
+    const url = `https://newsapi.org/v2/top-headlines?sources=national-geographic&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
     try {
       dispatch(toggleLoading(true));
       const response = await fetchData(url);
@@ -14,11 +13,11 @@ export const fetchNatGeo = () => {
         article.id = shortid.generate();
         article.isFavorite = false;
         return article;
-      })
+      });
       dispatch(setNatGeo(articles));
       dispatch(toggleLoading(false));
     } catch (error) {
       dispatch(setError(error.message));
     }
-  }
-}
+  };
+};
