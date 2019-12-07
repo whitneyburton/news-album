@@ -98,8 +98,11 @@ export class App extends Component {
             <Route component={Error404} />
           </Switch>
         )}
-        <p>
-          Powered by <a href="https://newsapi.org/">News API</a>
+        <p className="attribution">
+          Powered by{' '}
+          <a className="attribution-link" href="https://newsapi.org/">
+            News API
+          </a>
         </p>
       </div>
     );
