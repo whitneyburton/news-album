@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1575747237641" clover="3.2.0">
-  <project timestamp="1575747237642" name="All files">
+<coverage generated="1575749825313" clover="3.2.0">
+  <project timestamp="1575749825313" name="All files">
     <metrics statements="193" coveredstatements="186" conditionals="80" coveredconditionals="70" methods="65" coveredmethods="61" elements="338" coveredelements="317" complexity="0" loc="193" ncloc="193" packages="13" files="19" classes="19">
       <package name="actions">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
@@ -104,15 +104,15 @@
           <line num="73" count="23" type="stmt"/>
           <line num="77" count="19" type="stmt"/>
           <line num="78" count="19" type="stmt"/>
-          <line num="106" count="1" type="stmt"/>
-          <line num="114" count="5" type="stmt"/>
-          <line num="115" count="1" type="stmt"/>
-          <line num="116" count="1" type="stmt"/>
-          <line num="117" count="1" type="stmt"/>
-          <line num="118" count="0" type="stmt"/>
+          <line num="109" count="1" type="stmt"/>
+          <line num="117" count="5" type="stmt"/>
+          <line num="118" count="1" type="stmt"/>
           <line num="119" count="1" type="stmt"/>
           <line num="120" count="1" type="stmt"/>
-          <line num="125" count="1" type="stmt"/>
+          <line num="121" count="0" type="stmt"/>
+          <line num="122" count="1" type="stmt"/>
+          <line num="123" count="1" type="stmt"/>
+          <line num="128" count="1" type="stmt"/>
         </file>
       </package>
       <package name="containers.ArticleContainer">

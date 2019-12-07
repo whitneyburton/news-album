@@ -1,4 +1,17 @@
 .App {
   padding: 20px 30px;
   font-family: Roboto, sans-serif;
+
+  p {
+    text-align: center;
+    margin-top: 35px;
+    background-color: #f4f4f4;
+    padding: 10px 0px;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+
+    a {
+      font-weight: 500;
+    }
+  }
 }
