@@ -4,6 +4,10 @@
   margin: 14px auto;
   text-decoration: none;
   color: #000;
+
+  &:hover {
+    opacity: 0.85;
+  }
 }
 
 .Article--title-container {
@@ -11,7 +15,6 @@
 }
 
 .Article--title {
-  width: 90%;
   position: absolute;
   z-index: 1;
   color: #fff;
