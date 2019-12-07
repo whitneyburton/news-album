@@ -3,19 +3,20 @@
   justify-content: space-between;
   background-color: #1f1f1f;
   width: 95%;
-  height: 70%;
+  height: auto;
   position: fixed;
   z-index: 1;
   margin: auto;
   top: 21%;
   color: #fff;
   left: 2.4%;
+  border-radius: 3px;
 
   .Popup--info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0px 40px;
+    padding: 40px 20px 0 20px;
     letter-spacing: 1px;
     font-size: 20px;
     font-weight: 300;
@@ -30,23 +31,25 @@
   }
 
   .Popup--title {
-    font-size: 2em;
+    font-size: 1.5em;
     padding-top: 2%;
   }
 
   .Popup--image {
     width: 50%;
+    padding: 10px 10px 10px 0;
   }
 
   .Popup--star {
     position: absolute;
     top: 2%;
-    background-color: #1f1f1f;
+    background-color: #1f1f1fd1;
     padding: 10px 12px;
     border-radius: 50%;
     left: 94%;
     cursor: pointer;
     transition: all 500ms ease;
+    margin-top: 5px;
 
     &:hover {
       background-color: #424242;
@@ -55,7 +58,7 @@
 
   .Popup--close {
     position: absolute;
-    background-color: #1f1f1f;
+    background-color: #1f1f1fd1;
     top: 2%;
     padding: 10px 12px;
     border-radius: 50%;
@@ -63,6 +66,7 @@
     cursor: pointer;
     color: #000;
     transition: all 500ms ease;
+    margin-top: 5px;
 
     &:hover {
       background-color: #424242;
@@ -72,6 +76,7 @@
 
 .Popup--buttons {
   margin-left: auto;
+  padding-top: 20px;
 }
 
 button {
@@ -101,10 +106,10 @@ button {
   .Popup {
     flex-direction: column;
     display: flex;
-    top: 10%;
+    top: 5%;
     left: 1.4%;
     width: 97%;
-    height: 80%;
+    height: auto;
 
     .Popup--info {
       overflow: scroll;
@@ -113,7 +118,7 @@ button {
     }
 
     .Popup--author-pub {
-      padding: 0%;
+      padding: 1% 0%;
     }
 
     .Popup--facts {
@@ -121,23 +126,33 @@ button {
     }
 
     .Popup--title {
-      font-size: 1.4em;
-      padding-top: 2%;
+      font-size: 1.6em;
+      padding: 2% 0;
+      text-align: center;
     }
 
     .Popup--delete-fav {
       display: flex;
-      justify-content: space-evenly;
-      padding-top: 10px;
+      justify-content: flex-end;
+      padding: 10px 10px 0 0;
 
       .Popup--star {
         position: unset;
-        background-color: #727272;
+        background-color: #4a4949;
+
+        &:hover {
+          background-color: #373636;
+        }
       }
 
       .Popup--close {
         position: unset;
-        background-color: #727272;
+        background-color: #4a4949;
+        margin-right: 8px;
+
+        &:hover {
+          background-color: #373636;
+        }
       }
     }
 
@@ -147,12 +162,14 @@ button {
     }
 
     .Popup--image {
-      margin: auto;
-      height: 54%;
+      width: 90%;
+      margin: 10px auto;
+      // height: 54%;
+      max-height: 550px;
     }
 
     button {
-      border-radius: 20px;
+      border-radius: 8px;
       font-size: 13px;
       width: 35%;
       height: 30px;
@@ -164,8 +181,15 @@ button {
 
 @media screen and (max-width: 600px) {
   .Popup {
+    top: 15%;
+
     .Popup--image {
       width: 75%;
+    }
+
+    .Popup--author-pub,
+    .Popup--facts {
+      font-size: 12px;
     }
   }
 }

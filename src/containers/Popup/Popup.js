@@ -55,9 +55,9 @@ export class Popup extends Component {
           <div className="Popup--facts">
             <h4 className="Popup--title">{article.title.toUpperCase()}</h4>
             <p className="Popup--author-pub">
-              {article.author}, {publishedDate}
+              By: {article.author}, {publishedDate}
             </p>
-            <p className="Popup--description">{article.description}</p>
+            <p className="Popup--description">Glimpse: {article.description}</p>
           </div>
           <div className="Popup--buttons">
             <a href={article.url} target="_blank" rel="noopener noreferrer">
