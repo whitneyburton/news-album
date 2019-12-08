@@ -31,9 +31,3 @@ export const Nav = () => {
     </div>
   );
 };
-
-export const mapStateToProps = state => ({
-  natGeoArticles: state.natGeoArticles,
-  newScientistArticles: state.newScientistArticles,
-  cryptoCoinsArticles: state.cryptoCoinsArticles
-});
