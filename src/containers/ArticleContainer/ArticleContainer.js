@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Article } from '../../components/Article/Article';
@@ -11,33 +11,42 @@ export const ArticleContainer = ({
   cryptoCoinsArticles,
   newScientistArticles
 }) => {
-  const generateArticleCategory = () => {
+  const [articles, setArticles] = useState([]);
+
+  const generateArticles = () => {
     switch (match.path) {
       case '/national-geographic':
       case '/national-geographic/:id':
-        return natGeoArticles.map(article => {
-          return <Article key={article.id} article={article} match={match} />;
-        });
+        return setArticles(
+          natGeoArticles.map(article => {
+            return <Article key={article.id} article={article} match={match} />;
+          })
+        );
       case '/crypto-coins':
       case '/crypto-coins/:id':
-        return cryptoCoinsArticles.map(article => {
-          return <Article key={article.id} article={article} match={match} />;
-        });
+        return setArticles(
+          cryptoCoinsArticles.map(article => {
+            return <Article key={article.id} article={article} match={match} />;
+          })
+        );
       case '/new-scientist':
       case '/new-scientist/:id':
-        return newScientistArticles.map(article => {
-          return <Article key={article.id} article={article} match={match} />;
-        });
+        return setArticles(
+          newScientistArticles.map(article => {
+            return <Article key={article.id} article={article} match={match} />;
+          })
+        );
       case '/favorites':
       case '/favorites/:id':
-        const allArticles = [
-          ...natGeoArticles,
-          ...cryptoCoinsArticles,
-          ...newScientistArticles
-        ];
-        return generateFavoriteArticles(allArticles);
+        return setArticles(
+          generateFavoriteArticles([
+            ...natGeoArticles,
+            ...cryptoCoinsArticles,
+            ...newScientistArticles
+          ])
+        );
       default:
-        return;
+        setArticles([]);
     }
   };
 
@@ -66,7 +75,10 @@ export const ArticleContainer = ({
     }
   };
 
-  const articles = generateArticleCategory();
+  useEffect(() => {
+    generateArticles();
+  }, [match.path]);
+
   const disabledClass = isDisabled ? '--disabled' : '';
   const breakpoints = {
     default: 3,
