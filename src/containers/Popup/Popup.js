@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import ReactTooltip from 'react-tooltip';
+
 import { setFavorites } from '../../actions';
 import closeicon from '../../images/close.svg';
 import staricon from '../../images/star.svg';
@@ -29,13 +32,11 @@ export class Popup extends Component {
     }
   };
 
-  toggleCopied = () => (this.state.copied ? 'COPIED!' : 'COPY');
-
   render() {
     const { currentArticle: article, match } = this.props;
     const previousUrl = match.path.slice(0, -4);
     const publishedDate = new Date(article.publishedAt).toString().slice(0, 15);
-    const copied = this.toggleCopied();
+    const copied = this.state.copied ? 'COPIED!' : 'COPY';
     const icon = article.isFavorite ? favstaricon : staricon;
 
     return (
@@ -49,7 +50,18 @@ export class Popup extends Component {
             onClick={this.handleClick}
             className="Popup--star"
             alt="star icon"
+            id="favorite"
+            data-tip
+            data-for="favorite-tip"
           />
+          <ReactTooltip
+            id="favorite-tip"
+            type="light"
+            effect="solid"
+            place="bottom"
+          >
+            {article.isFavorite ? 'Remove favorite' : 'Save for later'}
+          </ReactTooltip>
         </div>
         <div className="Popup--info">
           <div className="Popup--facts">
@@ -61,15 +73,35 @@ export class Popup extends Component {
           </div>
           <div className="Popup--buttons">
             <a href={article.url} target="_blank" rel="noopener noreferrer">
-              <button>READ</button>
+              <button id="read" data-tip data-for="read-tip">
+                READ
+              </button>
             </a>
+            <ReactTooltip
+              id="read-tip"
+              type="light"
+              effect="solid"
+              place="bottom"
+            >
+              {'Read on their website'}
+            </ReactTooltip>
             <CopyToClipboard
               className="CopyToClipboard--button"
               text={article.url}
               onCopy={() => this.setState({ copied: true })}
             >
-              <button>{copied}</button>
+              <button id="copy" data-tip data-for="copy-tip">
+                {copied}
+              </button>
             </CopyToClipboard>
+            <ReactTooltip
+              id="copy-tip"
+              type="light"
+              effect="solid"
+              place="bottom"
+            >
+              {'Send this article to a friend!'}
+            </ReactTooltip>
           </div>
         </div>
         <img className="Popup--image" alt="article" src={article.urlToImage} />
