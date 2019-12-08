@@ -7,13 +7,24 @@ import { Loader } from '../../components/Loader/Loader';
 import Popup from '../Popup/Popup';
 import { Home } from '../../components/Home/Home';
 import { Header } from '../../components/Header/Header';
-import Nav from '../../components/Nav/Nav';
+import { Nav } from '../../components/Nav/Nav';
 import { Error404 } from '../../components/Error404/Error404';
 import { setNatGeo, setNewScientist, setCryptoCoins } from '../../actions';
+import { fetchCryptoCoins } from '../../thunks/fetchCryptoCoins';
+import { fetchNatGeo } from '../../thunks/fetchNatGeo';
+import { fetchNewScientist } from '../../thunks/fetchNewScientist';
 
 export class App extends Component {
-  componentDidMount = async () => {
+  componentDidMount = () => {
+    this.fetchArticles();
     this.getFavoritesFromStorage();
+  };
+
+  fetchArticles = async () => {
+    const { fetchNatGeo, fetchCryptoCoins, fetchNewScientist } = this.props;
+    await fetchNatGeo();
+    await fetchCryptoCoins();
+    await fetchNewScientist();
   };
 
   getArticleRoute = ({ match }) => {
@@ -120,7 +131,10 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   setNatGeo: articles => dispatch(setNatGeo(articles)),
   setNewScientist: articles => dispatch(setNewScientist(articles)),
-  setCryptoCoins: articles => dispatch(setCryptoCoins(articles))
+  setCryptoCoins: articles => dispatch(setCryptoCoins(articles)),
+  fetchNatGeo: () => dispatch(fetchNatGeo()),
+  fetchNewScientist: () => dispatch(fetchNewScientist()),
+  fetchCryptoCoins: () => dispatch(fetchCryptoCoins())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
