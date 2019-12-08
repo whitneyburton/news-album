@@ -62,21 +62,6 @@ describe('Popup', () => {
     });
   });
 
-  describe('toggleCopied', () => {
-    it('should return COPY when the the copied state property is false', () => {
-      const expected = 'COPY';
-      const result = wrapper.instance().toggleCopied();
-      expect(result).toEqual(expected);
-    });
-
-    it('should return COPIED! when the copied state property is true', () => {
-      wrapper.setState({ copied: true });
-      const expected = 'COPIED!';
-      const result = wrapper.instance().toggleCopied();
-      expect(result).toEqual(expected);
-    });
-  });
-
   describe('mapDispatchToProps', () => {
     it('calls dispatch with a setFavorites action', () => {
       const mockDispatch = jest.fn();
