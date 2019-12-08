@@ -1,53 +1,33 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { fetchCryptoCoins } from '../../thunks/fetchCryptoCoins';
-import { fetchNatGeo } from '../../thunks/fetchNatGeo';
-import { fetchNewScientist } from '../../thunks/fetchNewScientist';
+import { NavLink } from 'react-router-dom';
 
-export const Nav = ({
-  history,
-  natGeoArticles,
-  cryptoCoinsArticles,
-  newScientistArticles,
-  fetchNatGeo,
-  fetchCryptoCoins,
-  fetchNewScientist
-}) => {
-  const handleClick = async type => {
-    if (type === 'home') {
-      history.push('/');
-    } else if (type === 'nat geo') {
-      if (!natGeoArticles.length) await fetchNatGeo();
-      history.push('/national-geographic');
-    } else if (type === 'new scientist') {
-      if (!newScientistArticles.length) await fetchNewScientist();
-      history.push('/new-scientist');
-    } else {
-      if (!cryptoCoinsArticles.length) await fetchCryptoCoins();
-      history.push('/crypto-coins');
-    }
-  };
-
+export const Nav = () => {
   return (
     <div className="Nav--NavLink-container">
-      <button className="Nav--nav-btn" onClick={() => handleClick('home')}>
+      <NavLink exact to="/" className="Nav--nav-btn" activeClassName="active">
         Home
-      </button>
-      <button className="Nav--nav-btn" onClick={() => handleClick('nat geo')}>
-        National Geographic
-      </button>
-      <button
-        onClick={() => handleClick('new scientist')}
+      </NavLink>
+      <NavLink
+        to="/national-geographic"
         className="Nav--nav-btn"
+        activeClassName="active"
+      >
+        National Geographic
+      </NavLink>
+      <NavLink
+        to="/new-scientist"
+        className="Nav--nav-btn"
+        activeClassName="active"
       >
         The New Scientist
-      </button>
-      <button
+      </NavLink>
+      <NavLink
+        to="/crypto-coins"
         onClick={e => e.preventDefault()}
         className="Nav--nav-btn disabled"
       >
         Crypto Coins News
-      </button>
+      </NavLink>
     </div>
   );
 };
@@ -57,11 +37,3 @@ export const mapStateToProps = state => ({
   newScientistArticles: state.newScientistArticles,
   cryptoCoinsArticles: state.cryptoCoinsArticles
 });
-
-export const mapDispatchToProps = dispatch => ({
-  fetchNatGeo: () => dispatch(fetchNatGeo()),
-  fetchNewScientist: () => dispatch(fetchNewScientist()),
-  fetchCryptoCoins: () => dispatch(fetchCryptoCoins())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
