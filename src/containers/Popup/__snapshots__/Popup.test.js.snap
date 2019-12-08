@@ -20,9 +20,24 @@ exports[`Popup should match the snapshot 1`] = `
     <img
       alt="star icon"
       className="Popup--star"
+      data-for="favorite-tip"
+      data-tip={true}
+      id="favorite"
       onClick={[Function]}
       src="star.svg"
     />
+    <ReactTooltip
+      clickable={false}
+      effect="solid"
+      id="favorite-tip"
+      insecure={true}
+      place="bottom"
+      resizeHide={true}
+      type="light"
+      wrapper="div"
+    >
+      Save for later
+    </ReactTooltip>
   </div>
   <div
     className="Popup--info"
@@ -58,19 +73,52 @@ exports[`Popup should match the snapshot 1`] = `
         rel="noopener noreferrer"
         target="_blank"
       >
-        <button>
+        <button
+          className="Popup--button"
+          data-for="read-tip"
+          data-tip={true}
+          id="read"
+        >
           READ
         </button>
       </a>
+      <ReactTooltip
+        clickable={false}
+        effect="solid"
+        id="read-tip"
+        insecure={true}
+        place="top"
+        resizeHide={true}
+        type="light"
+        wrapper="div"
+      >
+        Read on their website
+      </ReactTooltip>
       <CopyToClipboard
         className="CopyToClipboard--button"
         onCopy={[Function]}
         text="https://www.nationalgeographic.com/animals/2019/02/why-insect-populations-are-plummeting-and-why-it-matters.html"
       >
-        <button>
+        <button
+          data-for="copy-tip"
+          data-tip={true}
+          id="copy"
+        >
           COPY
         </button>
       </CopyToClipboard>
+      <ReactTooltip
+        clickable={false}
+        effect="solid"
+        id="copy-tip"
+        insecure={true}
+        place="top"
+        resizeHide={true}
+        type="light"
+        wrapper="div"
+      >
+        Send this article to a friend!
+      </ReactTooltip>
     </div>
   </div>
   <img

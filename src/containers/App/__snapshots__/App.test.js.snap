@@ -49,13 +49,15 @@ exports[`App should match the snapshot 1`] = `
     />
   </Switch>
   <p
-    className="attribution"
+    className="App--attribution"
   >
     Powered by
      
     <a
-      className="attribution-link"
+      className="App--attribution-link"
       href="https://newsapi.org/"
+      rel="noopener noreferrer"
+      target="_blank"
     >
       News API
     </a>
@@ -71,13 +73,15 @@ exports[`App should match the snapshot when isLoading is true 1`] = `
   <Nav />
   <Loader />
   <p
-    className="attribution"
+    className="App--attribution"
   >
     Powered by
      
     <a
-      className="attribution-link"
+      className="App--attribution-link"
       href="https://newsapi.org/"
+      rel="noopener noreferrer"
+      target="_blank"
     >
       News API
     </a>

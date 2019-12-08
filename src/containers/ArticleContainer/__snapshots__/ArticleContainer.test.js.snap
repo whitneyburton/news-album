@@ -1,56 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ArticleContainer should match the snapshot 1`] = `
-<Masonry
-  breakpointCols={
-    Object {
-      "1500": 2,
-      "950": 1,
-      "default": 3,
-    }
-  }
-  className="ArticleContainer"
-  columnClassName="columns"
+<h1
+  className="ArticleContainer--no-faves"
 >
-  <Article
-    article={
-      Object {
-        "author": "Erica Johnson",
-        "description": "Pretty parks!",
-        "id": "a",
-        "isFavorite": false,
-        "publishedAt": "2019-02-19T02:07:16.9805881Z",
-        "title": "20 U.S. state parks",
-        "url": "https://www.nationalgeographic.com/travel/destinations/north-america/united-states/state-parks-worth-the-trip.html",
-        "urlToImage": "https://www.nationalgeographic.com/content/dam/travel/2019-digital/state-parks-to-know/02-state-parks-waianapanapa-park-hawaii.jpg",
-      }
-    }
-    key="a"
-    match={
-      Object {
-        "path": "/national-geographic",
-      }
-    }
-  />
-  <Article
-    article={
-      Object {
-        "author": "Douglas Main",
-        "description": "Sad insects.",
-        "id": "b",
-        "isFavorite": false,
-        "publishedAt": "2019-02-19T02:07:15.6368398Z",
-        "title": "Why insect populations are plummeting",
-        "url": "https://www.nationalgeographic.com/animals/2019/02/why-insect-populations-are-plummeting-and-why-it-matters.html",
-        "urlToImage": "https://www.nationalgeographic.com/content/dam/animals/2019/02/insects-in-decline/01-insects-in-decline-nationalgeographic_1353541.jpg",
-      }
-    }
-    key="b"
-    match={
-      Object {
-        "path": "/national-geographic",
-      }
-    }
-  />
-</Masonry>
+  No favorites yet!
+</h1>
 `;
