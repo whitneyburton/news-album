@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/whitneyburton/news-album/precache-manifest.3a10935ba473d705faef5d0e662c7ca9.js"
+  "/news-album/precache-manifest.3b0b270b9a535510bedb737402a97763.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/whitneyburton/news-album/index.html", {
+workbox.routing.registerNavigationRoute("/news-album/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
