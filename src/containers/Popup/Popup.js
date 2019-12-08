@@ -73,7 +73,12 @@ export class Popup extends Component {
           </div>
           <div className="Popup--buttons">
             <a href={article.url} target="_blank" rel="noopener noreferrer">
-              <button id="read" data-tip data-for="read-tip">
+              <button
+                className="Popup--button"
+                id="read"
+                data-tip
+                data-for="read-tip"
+              >
                 READ
               </button>
             </a>
@@ -90,7 +95,12 @@ export class Popup extends Component {
               text={article.url}
               onCopy={() => this.setState({ copied: true })}
             >
-              <button id="copy" data-tip data-for="copy-tip">
+              <button
+                className="Popup--button"
+                id="copy"
+                data-tip
+                data-for="copy-tip"
+              >
                 {copied}
               </button>
             </CopyToClipboard>
