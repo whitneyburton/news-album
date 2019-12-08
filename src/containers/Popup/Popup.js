@@ -82,12 +82,7 @@ export class Popup extends Component {
                 READ
               </button>
             </a>
-            <ReactTooltip
-              id="read-tip"
-              type="light"
-              effect="solid"
-              place="bottom"
-            >
+            <ReactTooltip id="read-tip" type="light" effect="solid" place="top">
               {'Read on their website'}
             </ReactTooltip>
             <CopyToClipboard
@@ -96,7 +91,7 @@ export class Popup extends Component {
               onCopy={() => this.setState({ copied: true })}
             >
               <button
-                className="Popup--button"
+                // className="Popup--button"
                 id="copy"
                 data-tip
                 data-for="copy-tip"
@@ -104,12 +99,7 @@ export class Popup extends Component {
                 {copied}
               </button>
             </CopyToClipboard>
-            <ReactTooltip
-              id="copy-tip"
-              type="light"
-              effect="solid"
-              place="bottom"
-            >
+            <ReactTooltip id="copy-tip" type="light" effect="solid" place="top">
               {'Send this article to a friend!'}
             </ReactTooltip>
           </div>

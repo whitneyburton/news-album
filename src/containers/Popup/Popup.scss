@@ -80,7 +80,8 @@
   padding-top: 20px;
 }
 
-.Popup--button {
+.Popup--button,
+.CopyToClipboard--button {
   background-color: #727272;
   color: #fff;
   border: none;
@@ -169,7 +170,8 @@
       max-height: 550px;
     }
 
-    .Popup--button {
+    .Popup--button,
+    .CopyToClipboard--button {
       border-radius: 8px;
       font-size: 13px;
       width: 35%;
